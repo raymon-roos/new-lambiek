@@ -1,7 +1,5 @@
 <?php
 
-include('src/php/common/pdo.php');
-
 $titles = findRandomTitles();
 
 ?>
