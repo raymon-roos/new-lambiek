@@ -26,9 +26,9 @@ $comics = findRandomComics();
     </div>
 
     <div class="flex justify-evenly mx-auto border-t-4 border-t-comic_blue">
-    <?php foreach (range('A', 'Z') as $letter) { ?> 
-       <span class="">
-           <a href="/src/php/pages/artists.php?filter=a">
+    <?php foreach (range('a', 'z') as $letter) { ?> 
+       <span class="uppercase">
+           <a href="/src/php/pages/artists.php?filter=<?= $letter ?>">
                <p class="p-2 bg-old_paper-100 text-center "><?= $letter ?></p>
             </a>
         </span>

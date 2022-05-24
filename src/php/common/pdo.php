@@ -1,6 +1,9 @@
 <?php
 
 // PDO verbinding instellen
+
+use Twig\TokenParser\FlushTokenParser;
+
 $host = '127.0.0.1';
 $db   = 'lambiek';
 $user = 'bit_academy';
@@ -25,11 +28,20 @@ function findRandomComics(): array | false
     return ($comics) ?: false;
 }
 
-function findComicByID($id): array | false
+function findComicByID(int $id): array | false
 {
     $comic = DB->prepare("SELECT * FROM `catalog` WHERE `id` = :id");
     $comic->execute([':id' => $id]);
     $comic = $comic->fetch();
 
     return ($comic) ?: false;
+}
+
+function findArtistsByLetter(string $letter): array | false 
+{
+    $artists = DB->prepare("SELECT `artist` FROM `catalog` WHERE LEFT(`artist`,1) = :letter GROUP BY `artist`");
+    $artists->execute([':letter' => $letter]);
+    $artists = $artists->fetchAll();
+
+    return ($artists) ?: false;
 }
