@@ -3,7 +3,7 @@
 require_once('../../components/header.html');
 require_once('../common/pdo.php'); 
 
-$comic = findComicByID($_GET['comicID']);
+$comics = findRandomComics();
 ?>
 
 <!DOCTYPE html>
@@ -20,12 +20,17 @@ $comic = findComicByID($_GET['comicID']);
 <body class="bg-old_paper-100">
 <div class="w-3/5 mx-auto">
     <article class="bg-old_paper-200 p-28">
-        <section class="text-justify font-serif">
-            <table>
-            <?php foreach ($comic as $comicProperty) { ?>
-                <tr><td><h5><?= $comicProperty ?></h5></td></tr>     
-            <?php }  ?>
-            </table>
+        <section>
+            <div class="grid gap-2 grid-cols-3 grid-rows-6 grid-flow-row place-content-center">
+                <?php foreach ($comics as $comic) { ?>
+                    <div class="">
+                    <a href="/src/php/pages/comic_details.php?comicID=<?= $comic['id'] ?>">
+                    <img src="http://unsplash.it/165/220" alt="oops" class="">
+                    </a>
+                    <h4><?= $comic['title'] ?></h4>
+                    </div>
+                <?php } ?>
+            </div>
         </section>
     </article>
 </div>

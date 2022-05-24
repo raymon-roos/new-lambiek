@@ -1,10 +1,3 @@
-<?php
-
-$titles = findRandomTitles();
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,18 +34,6 @@ $titles = findRandomTitles();
                 architecto qui, quis suscipit itaque tempore ipsa officiis neque. Nam, cumque
                 quae.
             </p>
-        </section>
-        <section>
-            <div class="grid gap-2 grid-cols-3 grid-rows-6 grid-flow-row place-content-center">
-                <?php foreach ($titles as $title) { ?>
-                    <div class="">
-                    <a href="/comic/<?= $title['id'] ?>">
-                    <img src="http://unsplash.it/165/220" alt="oops" class="">
-                    </a>
-                    <h4><?= $title['title'] ?></h4>
-                    </div>
-                <?php } ?>
-            </div>
         </section>
     </article>
 </div>

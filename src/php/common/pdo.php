@@ -18,11 +18,11 @@ try {
     echo $e->getMessage();
 }
 
-function findRandomTitles(): array | false
+function findRandomComics(): array | false
 {
-    $titles = DB->query('SELECT `id`, `title` FROM `catalog` ORDER BY RAND() LIMIT 20')->fetchAll();
+    $comics = DB->query('SELECT `id`, `title` FROM `catalog` ORDER BY RAND() LIMIT 20')->fetchAll();
 
-    return ($titles) ?: false;
+    return ($comics) ?: false;
 }
 
 function findComicByID($id): array | false
