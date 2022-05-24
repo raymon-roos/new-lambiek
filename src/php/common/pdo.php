@@ -30,5 +30,6 @@ function findComicByID($id): array | false
     $comic = DB->prepare("SELECT * FROM `catalog` WHERE `id` = :id");
     $comic->execute([':id' => $id]);
     $comic = $comic->fetch();
+
     return ($comic) ?: false;
 }
