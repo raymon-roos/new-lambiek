@@ -18,7 +18,7 @@ $comic = findComicByID($_GET['comicID']);
 </head>
 
 <body class="bg-old_paper-100">
-<div class="w-3/5 mx-auto">
+<div class="w-9/12 mx-auto">
     <article class="bg-old_paper-200 p-28">
         <section class="text-justify font-serif">
             <table>

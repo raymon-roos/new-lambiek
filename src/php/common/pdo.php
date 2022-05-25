@@ -45,3 +45,12 @@ function findArtistsByLetter(string $letter): array | false
 
     return ($artists) ?: false;
 }
+
+function findComicsByArtistName(string $name): array | false 
+{
+    $comics = DB->prepare("SELECT * FROM `catalog` WHERE `artist` = :artist GROUP BY `artist`");
+    $comics->execute([':artist' => $name]);
+    $comics = $comics->fetchAll();
+
+    return ($comics) ?: false;
+}

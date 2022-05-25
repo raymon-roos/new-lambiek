@@ -34,7 +34,7 @@ $artists = findArtistsByLetter($_GET['filter']);
         <section class="text-justify font-serif">
             <table>
             <?php foreach ($artists as $artist) { ?>
-                <tr><td><h5><?= $artist['artist'] ?></h5></td></tr>     
+                <tr><td><h5><a href="artist_details.php?name=<?= $artist['artist'] ?>"><?= $artist['artist'] ?></a></h5></td></tr>     
             <?php }  ?>
             </table>
         </section>
