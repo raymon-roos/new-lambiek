@@ -4,7 +4,6 @@ require_once('../../components/header.html');
 require_once('../common/pdo.php'); 
 
 $comics = findComicsByArtistName($_GET['name']);
-var_dump($_GET['name']);
 ?>
 
 <!DOCTYPE html>
