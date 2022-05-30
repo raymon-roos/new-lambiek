@@ -94,16 +94,20 @@ function findArticleByName(string $name): string | false
     return ($article['content']) ?: false;
 }
 
-function searchArticles(string $key): array | false
+function searchArticles(string $keyword, array $limit = [0,20]): array | false
 {
     $articles = DB->prepare(
         "SELECT * 
         FROM `comiclopedia` 
         WHERE `firstname` 
-        LIKE :keyword OR `firstname` LIKE :keyword 
-        ORDER BY `lastname`"
+        LIKE :keyword OR `firstname` LIKE :keyword OR `keywords` LIKE :keyword
+        ORDER BY `lastname`
+        LIMIT :limstart, :limend"
     );
-    $articles->execute([':keyword' => "%$key%"]);
+    $articles->bindValue(':keyword', "%$keyword%", PDO::PARAM_STR);
+    $articles->bindValue(':limstart', $limit[0], PDO::PARAM_INT);
+    $articles->bindValue(':limend', $limit[1], PDO::PARAM_INT);
+    $articles->execute();
     $articles = $articles->fetchAll();
 
     return ($articles) ?: false;

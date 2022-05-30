@@ -36,16 +36,16 @@ $articles = findRandomArticles();
     </div>
 
     <div class="my-8 w-full">
-        <form action="../common/search.php" method="POST"
+        <form action="search.php" method="POST"
             class="flex justify-center">
-            <input type="search" name="search" id="search" class="rounded-xl">
+            <input type="search" name="search" id="search" class="rounded-xl px-2">
             <input type="submit" value="search" class="bg-old_paper-100 ml-4 rounded-xl p-1">
         </form>
     </div>
 
     <article class="bg-old_paper-200 px-8">
         <section>
-            <div class="grid gap-2 grid-cols-3 grid-rows-6 grid-flow-row place-content-center">
+            <div class="grid gap-2 grid-cols-3 grid-flow-row place-content-center">
                 <?php foreach ($articles as $article) { ?>
                     <div class="">
                         <a href="artist_details.php?name=<?= $article['lastname'] ?>" 
