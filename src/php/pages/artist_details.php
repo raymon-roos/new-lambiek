@@ -3,7 +3,7 @@
 require_once('../../components/header.html');
 require_once('../common/pdo.php'); 
 
-$comics = findComicsByArtistName($_GET['name']);
+$article = findArticleByName($_GET['name']);
 ?>
 
 <!DOCTYPE html>
@@ -21,16 +21,15 @@ $comics = findComicsByArtistName($_GET['name']);
 <div class="w-9/12 mx-auto">
     <article class="bg-old_paper-200 p-28">
         <section class="text-justify font-serif">
-            <div class="grid gap-2 grid-cols-3 grid-rows-6 grid-flow-row place-content-center">
-                <?php foreach ($comics as $comic) { ?>
-                    <div class="">
-                        <a href="comic_details.php?comicID=<?= $comic['id'] ?>" 
-                            class="flex flex-col items-center">
-                            <img src="http://unsplash.it/165/220" alt="oops" width="165" height="220" class="">
-                            <h4 class="flex-wrap break-inside-auto"><?= $comic['title'] ?></h4>
-                        </a>
-                    </div>
-                <?php } ?>
+            <div class="">
+                <?php if ($article) { ?>
+                    <p><?= $article ?></p>
+                <?php } else { ?>
+                    <div>No article was found for this artist.</div>
+                <?php }?>
+            </div>
+
+            <div>
             </div>
         </section>
     </article>

@@ -3,7 +3,7 @@
 require_once('../../components/header.html');
 require_once('../common/pdo.php'); 
 
-$comics = findRandomComics();
+$articles = findRandomArticles();
 ?>
 
 <!DOCTYPE html>
@@ -35,23 +35,23 @@ $comics = findRandomComics();
     <?php } ?>  
     </div>
 
-    <div class="my-8">
+    <div class="my-8 w-full">
         <form action="../common/search.php" method="POST"
             class="flex justify-center">
-            <input type="search" name="search" id="search" class="">
-            <input type="submit" value="search" class="">
+            <input type="search" name="search" id="search" class="rounded-xl">
+            <input type="submit" value="search" class="bg-old_paper-100 ml-4 rounded-xl p-1">
         </form>
     </div>
 
     <article class="bg-old_paper-200 px-8">
         <section>
             <div class="grid gap-2 grid-cols-3 grid-rows-6 grid-flow-row place-content-center">
-                <?php foreach ($comics as $comic) { ?>
+                <?php foreach ($articles as $article) { ?>
                     <div class="">
-                        <a href="comic_details.php?comicID=<?= $comic['id'] ?>" 
+                        <a href="artist_details.php?name=<?= $article['lastname'] ?>" 
                             class="flex flex-col items-center">
                             <img src="http://unsplash.it/165/220" alt="oops" width="165" height="220" class="">
-                            <h4 class="flex-wrap break-inside-auto"><?= $comic['title'] ?></h4>
+                            <h4 class="flex-wrap break-inside-auto"><?php echo"{$article['firstname']} {$article['lastname']}" ?></h4>
                         </a>
                     </div>
                 <?php } ?>

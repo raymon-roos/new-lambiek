@@ -1,9 +1,5 @@
 <?php
 
-// PDO verbinding instellen
-
-use Twig\TokenParser\FlushTokenParser;
-
 $host = '127.0.0.1';
 $db   = 'lambiek';
 $user = 'bit_academy';
@@ -39,7 +35,7 @@ function findComicByID(int $id): array | false
 
 function findArtistsByLetter(string $letter): array | false 
 {
-    $artists = DB->prepare("SELECT `artist` FROM `catalog` WHERE LEFT(`artist`,1) = :letter GROUP BY `artist`");
+    $artists = DB->prepare("SELECT `firstname`, `lastname` FROM `comiclopedia` WHERE LEFT(`lastname`,1) = :letter GROUP BY `lastname`");
     $artists->execute([':letter' => $letter]);
     $artists = $artists->fetchAll();
 
@@ -53,4 +49,30 @@ function findComicsByArtistName(string $name): array | false
     $comics = $comics->fetchAll();
 
     return ($comics) ?: false;
+}
+
+function findRandomArticles(): array | false
+{
+    $articles = DB->query('SELECT * FROM `comiclopedia` ORDER BY RAND() LIMIT 20')->fetchAll();
+
+    return ($articles) ?: false;
+}
+
+
+function findArticleByName(string $name): string | false
+{
+    $article = DB->prepare("SELECT `content` FROM `comiclopedia` WHERE `lastname` = :lastname");
+    $article->execute([':lastname' => $name]);
+    $article = $article->fetch();
+
+    return ($article['content']) ?: false;
+}
+
+function searchArticles(string $key): array | false
+{
+    $articles = DB->prepare("SELECT * FROM `comiclopedia` WHERE `firstname` LIKE :keyword OR `firstname` LIKE :keyword ORDER BY `lastname`");
+    $articles->execute([':keyword' => "%$key%"]);
+    $articles = $articles->fetchAll();
+
+    return ($articles) ?: false;
 }
