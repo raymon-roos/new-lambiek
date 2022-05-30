@@ -1,14 +1,14 @@
 <?php
 
-require_once('../../components/header_comiclopedia.html');
+require_once('../../components/header.html');
 
 if (!$_POST['search']) {
-    header("Location: /src/php/pages/comiclopedia.php");
+    header("Location: /src/php/pages/webshop.php");
     exit();
 }
 
 require_once('../common/pdo.php');
-$results = searchArticles($_POST['search']);
+$results = searchComics($_POST['search']);
 
 ?>
 <!DOCTYPE html>
@@ -37,11 +37,10 @@ $results = searchArticles($_POST['search']);
                 <?php if ($results) {
                     foreach ($results as $result) { ?>
                     <div class="flex">
-                        <a href="artist_details.php?name=<?= $result['lastname'] ?>" 
+                        <a href="comic_details.php?comicID=<?= $result['id'] ?>" 
                             class="flex flex-col ">
                             <img src="http://unsplash.it/165/220" alt="oops" width="165" height="220" class="">
-                            <p class="flex-wrap ">Name: <?= "{$result['firstname']} {$result['lastname']}" ?></p>
-                            <p class="flex-wrap ">Country: <?= $result['country'] ?></p>
+                            <p class="flex-wrap "><?= $result['artist']?></p>
                         </a>
                     </div>
                     <?php }
@@ -55,3 +54,4 @@ $results = searchArticles($_POST['search']);
 </div>    
 </body>
 </html>
+
