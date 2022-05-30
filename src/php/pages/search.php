@@ -1,6 +1,6 @@
 <?php
 
-require_once('../../components/header.html');
+require_once('../../components/header_comiclopedia.html');
 
 if (!$_POST['search']) {
     header("Location: /src/php/pages/comiclopedia.php");

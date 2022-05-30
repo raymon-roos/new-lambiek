@@ -1,6 +1,6 @@
 <?php
 
-require_once('../../components/header.html');
+require_once('../../components/header_comiclopedia.html');
 require_once('../common/pdo.php'); 
 
 $artists = findArtistsByLetter($_GET['filter']);
@@ -31,7 +31,7 @@ $artists = findArtistsByLetter($_GET['filter']);
     </div>
 
     <article class="bg-old_paper-200 p-8">
-        <section class="font-serif columns-4 [column-rule:1px_solid_blue]">
+        <section class="font-serif columns-3xs [column-rule:1px_comic_blue]">
             <?php foreach ($artists as $artist) { ?>
                 <p class="break-before-avoid ">
                     <a href="artist_details.php?name=<?= $artist['lastname'] ?>">

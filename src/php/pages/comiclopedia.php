@@ -1,6 +1,6 @@
 <?php
 
-require_once('../../components/header.html');
+require_once('../../components/header_comiclopedia.html');
 require_once('../common/pdo.php'); 
 
 $articles = findRandomArticles();
