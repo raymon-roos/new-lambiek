@@ -9,6 +9,9 @@ module.exports = {
                     100: "#fdf6e1",
                     200: "#f0ddb2",
                 },
+                comic_blue: {
+                    DEFAULT: "#3477ab",
+                },
             },
         },
     },

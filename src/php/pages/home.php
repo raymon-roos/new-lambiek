@@ -10,7 +10,7 @@
 </head>
 
 <body class="bg-old_paper-100">
-<div class="w-3/5 mx-auto">
+<div class="w-9/12 mx-auto">
     <article class="bg-old_paper-200 p-28">
         <h2 class="text-3xl font-bold font-mono text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
         </h2>
