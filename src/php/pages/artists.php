@@ -30,17 +30,15 @@ $artists = findArtistsByLetter($_GET['filter']);
     <?php } ?>  
     </div>
 
-    <article class="bg-old_paper-200 p-28">
-        <section class="text-justify font-serif">
-            <table>
+    <article class="bg-old_paper-200 p-8">
+        <section class="font-serif columns-4 [column-rule:1px_solid_blue]">
             <?php foreach ($artists as $artist) { ?>
-                <tr><td>
-                    <h5><a href="artist_details.php?name=<?= $artist['lastname'] ?>">
-                    <?= $artist['lastname'] ?>, <?= $artist['firstname'] ?>
-                    </a></h5>
-                </td></tr>     
+                <p class="break-before-avoid ">
+                    <a href="artist_details.php?name=<?= $artist['lastname'] ?>">
+                        <?= $artist['lastname'] ?>, <?= $artist['firstname'] ?>
+                    </a>
+                </p>
             <?php }  ?>
-            </table>
         </section>
     </article>
 </div>
