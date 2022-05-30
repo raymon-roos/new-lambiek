@@ -1,7 +1,5 @@
 <?php
 
-require_once('dbcon.php');
-
 function findArtistsByLetter(string $letter): array | false 
 {
     $artists = DB->prepare(
