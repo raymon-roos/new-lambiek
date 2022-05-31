@@ -1,0 +1,26 @@
+<div class="py-10 w-full">
+    <form action="search.php" method="POST" class="flex flex-col justify-center al">
+        <div class="flex justify-center">
+            <input type="search" name="search" id="search" class="rounded-xl px-2 w-3/5">
+            <input type="submit" value="search" class="bg-old_paper-100 ml-4 rounded-xl px-2 py-1 w-fit">
+        </div>
+
+        <div class="flex justify-center text-sm" id="search_filter_buttons_container">
+            <input type="checkbox" id="filterFirstName" class="invisible">
+            <label for="filterFirstName" class="bg-old_paper-100 m-1 rounded-xl px-2 py-1">First name</label>
+
+            <input type="checkbox" id="filterLastName" class="invisible">
+            <label for="filterLastName" class="bg-old_paper-100 m-1 rounded-xl px-2 py-1">Last name</label>
+
+            <input type="checkbox" id="filterRealName" class="invisible">
+            <label for="filterRealName" class="bg-old_paper-100 m-1 rounded-xl px-2 py-1">Real name</label>
+
+            <input type="checkbox" id="filterPageTitle" class="invisible">
+            <label for="filterPageTitle" class="bg-old_paper-100 m-1 rounded-xl px-2 py-1">Article title</label>
+
+            <input type="checkbox" id="filterKeywords" class="invisible">
+            <label for="filterKeywords" class="bg-old_paper-100 m-1 rounded-xl px-2 py-1">Keywords</label>
+        </div>
+        <script src="../../js/search_filters.js"></script>
+    </form>
+</div>

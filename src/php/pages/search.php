@@ -7,6 +7,8 @@ if (!$_POST['search']) {
     exit();
 }
 
+var_dump($_POST);
+
 require_once('../common/pdo.php');
 $results = searchArticles($_POST['search']);
 
@@ -23,13 +25,7 @@ $results = searchArticles($_POST['search']);
 <body class="bg-old_paper-100">
 <div class="w-9/12 min-w-fit mx-auto bg-old_paper-200">
 
-    <div class="py-8 w-full">
-        <form action="search.php" method="POST"
-            class="flex justify-center">
-            <input type="search" name="search" id="search" class="rounded-xl px-2">
-            <input type="submit" value="search" class="bg-old_paper-100 ml-4 rounded-xl p-1">
-        </form>
-    </div>
+<?php require_once('../../components/search_bar.html'); ?>
 
     <article class="bg-old_paper-200 px-8">
         <section>
@@ -49,6 +45,12 @@ $results = searchArticles($_POST['search']);
                     <p>No matches were found</p>
                 <?php } ?>
             </div>
+            <span class="flex justify-center">
+                <p>Show: (not yet working)</p>
+                <a href="search.php?limit=20">20|</a>
+                <a href="search.php?limit=50">50|</a>
+                <a href="search.php?limit=100">100</a>
+            </span>
         </section>
     </article>
 

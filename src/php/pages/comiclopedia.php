@@ -1,6 +1,5 @@
 <?php
 
-require_once('../../components/header_comiclopedia.html');
 require_once('../common/pdo.php'); 
 
 $articles = findRandomArticles();
@@ -16,6 +15,7 @@ $articles = findRandomArticles();
     <title>Comiclopedia</title>
     <link rel="stylesheet" href="../../../dist/output.css">
 </head>
+<?php require_once('../../components/header_comiclopedia.html'); ?>
 
 <body class="bg-old_paper-100">
 <div class="w-9/12 min-w-fit mx-auto bg-old_paper-200">
@@ -35,13 +35,7 @@ $articles = findRandomArticles();
     <?php } ?>  
     </div>
 
-    <div class="my-8 w-full">
-        <form action="search.php" method="POST"
-            class="flex justify-center">
-            <input type="search" name="search" id="search" class="rounded-xl px-2">
-            <input type="submit" value="search" class="bg-old_paper-100 ml-4 rounded-xl p-1">
-        </form>
-    </div>
+<?php require_once('../../components/search_bar.html'); ?>
 
     <article class="bg-old_paper-200 px-8">
         <section>
