@@ -1,6 +1,6 @@
 <?php
 
-require_once('../../components/header.html');
+require_once('../../components/header_comiclopedia.html');
 require_once('../common/pdo.php'); 
 
 $article = findArticleByName($_GET['name']);
@@ -19,18 +19,9 @@ $article = findArticleByName($_GET['name']);
 
 <body class="bg-old_paper-100">
 <div class="w-9/12 mx-auto">
-    <article class="bg-old_paper-200 p-28">
-        <section class="text-justify font-serif">
-            <div class="">
-                <?php if ($article) { ?>
-                    <p><?= $article ?></p>
-                <?php } else { ?>
-                    <div>No article was found for this artist.</div>
-                <?php }?>
-            </div>
-
-            <div>
-            </div>
+    <article class="bg-old_paper-200 p-8">
+        <section class="">
+            <?php echo ($article) ?: 'No article was found for this artist.' ?>
         </section>
     </article>
 </div>

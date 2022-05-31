@@ -38,7 +38,7 @@ $artists = findArtistsByLetter($_GET['filter']);
                         <?= $artist['lastname'] ?>, <?= $artist['firstname'] ?>
                     </a>
                 </p>
-            <?php }  ?>
+            <?php } ?>
         </section>
     </article>
 </div>
