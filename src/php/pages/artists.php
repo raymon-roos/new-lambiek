@@ -1,6 +1,5 @@
 <?php
 
-require_once('../../components/header_comiclopedia.html');
 require_once('../common/pdo.php'); 
 
 $artists = findArtistsByLetter($_GET['filter']);
@@ -16,6 +15,8 @@ $artists = findArtistsByLetter($_GET['filter']);
     <title>Comic details</title>
     <link rel="stylesheet" href="../../../dist/output.css">
 </head>
+
+<?php require_once('../../components/header_comiclopedia.html'); ?>
 
 <body class="bg-old_paper-100">
 <div class="w-9/12 min-w-fit mx-auto bg-old_paper-200">

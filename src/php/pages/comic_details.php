@@ -17,6 +17,8 @@ $comic = findComicByID($_GET['comicID']);
     <link rel="stylesheet" href="../../../dist/output.css">
 </head>
 
+<?php require_once('../../components/header.html'); ?>
+
 <body class="bg-old_paper-100">
 <div class="w-9/12 mx-auto">
     <article class="bg-old_paper-200 p-28">

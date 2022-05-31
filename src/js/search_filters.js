@@ -5,8 +5,7 @@ filterLabels.forEach(clickableFilter => {
     clickableFilter.addEventListener("click", clickFilter);
 });
 
-clickFilter(clicked) {
+function clickFilter(clicked) {
     console.log("clicked on a filter");
-    console.log(clicked);
-
+    clicked.style.border = "1px solid blue";
 }

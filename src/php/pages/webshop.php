@@ -1,6 +1,5 @@
 <?php
 
-require_once('../../components/header.html');
 require_once('../common/pdo.php'); 
 
 $comics = findRandomComics();
@@ -16,6 +15,8 @@ $comics = findRandomComics();
     <title>Comiclopedia</title>
     <link rel="stylesheet" href="../../../dist/output.css">
 </head>
+
+<?php require_once('../../components/header.html'); ?>
 
 <body class="bg-old_paper-100">
 <div class="w-9/12 mx-auto min-w-min bg-old_paper-200">

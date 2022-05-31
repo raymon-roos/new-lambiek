@@ -1,7 +1,5 @@
 <?php
 
-require_once('../../components/header_comiclopedia.html');
-
 if (!$_POST['search']) {
     header("Location: /src/php/pages/comiclopedia.php");
     exit();
@@ -22,6 +20,9 @@ $results = searchArticles($_POST['search']);
     <link rel="stylesheet" href="/dist/output.css">
     <title>Search</title>
 </head>
+
+<?php require_once('../../components/header_comiclopedia.html'); ?>
+
 <body class="bg-old_paper-100">
 <div class="w-9/12 min-w-fit mx-auto bg-old_paper-200">
 

@@ -15,6 +15,7 @@ $articles = findRandomArticles();
     <title>Comiclopedia</title>
     <link rel="stylesheet" href="../../../dist/output.css">
 </head>
+
 <?php require_once('../../components/header_comiclopedia.html'); ?>
 
 <body class="bg-old_paper-100">
@@ -38,8 +39,7 @@ $articles = findRandomArticles();
 <?php require_once('../../components/search_bar.html'); ?>
 
     <article class="bg-old_paper-200 px-8">
-        <section>
-            <div class="grid gap-2 grid-cols-3 grid-flow-row place-content-center">
+        <section class="grid gap-2 grid-cols-3 grid-flow-row place-content-center">
                 <?php foreach ($articles as $article) { ?>
                     <div class="">
                         <a href="artist_details.php?name=<?= $article['lastname'] ?>" 
@@ -49,7 +49,6 @@ $articles = findRandomArticles();
                         </a>
                     </div>
                 <?php } ?>
-            </div>
         </section>
     </article>
 </div>

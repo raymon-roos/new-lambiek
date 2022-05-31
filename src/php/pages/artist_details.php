@@ -1,6 +1,5 @@
 <?php
 
-require_once('../../components/header_comiclopedia.html');
 require_once('../common/pdo.php'); 
 
 $article = findArticleByName($_GET['name']);
@@ -16,6 +15,9 @@ $article = findArticleByName($_GET['name']);
     <title>Comic details</title>
     <link rel="stylesheet" href="../../../dist/output.css">
 </head>
+
+<?php require_once('../../components/header_comiclopedia.html'); ?>
+
 
 <body class="bg-old_paper-100">
 <div class="w-9/12 mx-auto">
