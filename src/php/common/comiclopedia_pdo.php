@@ -41,13 +41,13 @@ function findArticleByName(string $name): string | false
 }
 
 function searchArticles(
-    string $keyword, 
+    string $searchTerm, 
     array $filters = ['firstname', 'lastname', 'realname', 'pagetitle', 'keywords'], 
     array $limit = [0,20]
 ): array | false {
 
     foreach ($filters as $columnName) {
-        $sqlString[] = "`$columnName` LIKE :keyword";
+        $sqlString[] = "`$columnName` LIKE :searchTerm";
     }
     $sqlString = implode(' OR ', $sqlString);
 
@@ -58,7 +58,7 @@ function searchArticles(
         ORDER BY `lastname`
         LIMIT :limstart, :limend"
     );
-    $articles->bindValue(':keyword', "%$keyword%", PDO::PARAM_STR);
+    $articles->bindValue(':searchTerm', "%$searchTerm%", PDO::PARAM_STR);
     $articles->bindValue(':limstart', $limit[0], PDO::PARAM_INT);
     $articles->bindValue(':limend', $limit[1], PDO::PARAM_INT);
     $articles->execute();
