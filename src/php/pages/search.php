@@ -5,12 +5,19 @@ if (!$_POST['search']) {
     exit();
 }
 
-var_dump($_POST);
+foreach ($_POST as $inputField => $inputValue) {
+    if (preg_match('/^filter/', $inputField)) {
+        $filters[] = strtolower(str_replace('filter', '', $inputField));
+    }
+}
 
 require_once('../common/pdo.php');
-$results = searchArticles($_POST['search']);
+$results = (!empty($filters)) ? 
+    searchArticles($_POST['search'], $filters) : 
+    searchArticles($_POST['search']);
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,11 +33,12 @@ $results = searchArticles($_POST['search']);
 <body class="bg-old_paper-100">
 <div class="w-9/12 min-w-fit mx-auto bg-old_paper-200">
 
-<?php require_once('../../components/search_bar.html'); ?>
+    <?php require_once('../../components/search_bar.html'); ?>
 
     <article class="bg-old_paper-200 px-8">
         <section>
             <div class="grid gap-2 grid-cols-2 grid-flow-row place-content-between">
+
                 <?php if ($results) {
                     foreach ($results as $result) { ?>
                     <div class="flex">

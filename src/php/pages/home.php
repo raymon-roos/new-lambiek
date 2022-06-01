@@ -9,6 +9,8 @@
     <title>test</title>
 </head>
 
+<?php require_once('src/components/header.html'); ?>
+
 <body class="bg-old_paper-100">
 <div class="w-9/12 mx-auto">
     <article class="bg-old_paper-200 p-28">

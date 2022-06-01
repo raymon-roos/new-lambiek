@@ -2,10 +2,9 @@ let filterCheckboxes = document.querySelectorAll("#search_filter_buttons_contain
 let filterLabels = document.querySelectorAll("#search_filter_buttons_container label");
 
 filterLabels.forEach(clickableFilter => {
-    clickableFilter.addEventListener("click", clickFilter);
+    clickableFilter.addEventListener("click", function () {
+        clickableFilter.style.border = "1px solid blue";
+        filterToggleID = clickableFilter.getAttribute("for");
+        document.querySelector(`[id="${filterToggleID}"]`).value = "checked";
+    });
 });
-
-function clickFilter(clicked) {
-    console.log("clicked on a filter");
-    clicked.style.border = "1px solid blue";
-}

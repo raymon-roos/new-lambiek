@@ -46,8 +46,8 @@ function searchArticles(
     array $limit = [0,20]
 ): array | false {
 
-    foreach ($filters as $filter) {
-        $sqlString[] = "`$filter` LIKE :keyword";
+    foreach ($filters as $columnName) {
+        $sqlString[] = "`$columnName` LIKE :keyword";
     }
     $sqlString = implode(' OR ', $sqlString);
 
