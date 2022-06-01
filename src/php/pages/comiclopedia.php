@@ -16,25 +16,17 @@ $articles = findRandomArticles();
     <link rel="stylesheet" href="../../../dist/output.css">
 </head>
 
-<?php require_once('../../components/header_comiclopedia.html'); ?>
-
 <body class="bg-old_paper-100">
-<div class="w-9/12 min-w-fit mx-auto bg-old_paper-200">
+<div class="w-9/12 mx-auto bg-old_paper-200 p-2">
+
+<?php require_once('../../components/header.html'); ?>
 
     <div class="ml-24 mb-6 text-xl text-comic_blue font-sans uppercase">
         <h1 class="">Comiclopedia-</h1>
         <h3 class="">Illustrated artist compendium</h3>
     </div>
 
-    <div class="flex justify-evenly mx-auto border-t-4 border-t-comic_blue">
-    <?php foreach (range('a', 'z') as $letter) { ?> 
-       <span class="uppercase">
-           <a href="/src/php/pages/artists.php?filter=<?= $letter ?>">
-               <p class="p-2 bg-old_paper-100 text-center "><?= $letter ?></p>
-            </a>
-        </span>
-    <?php } ?>  
-    </div>
+<?php require_once('../../components/alphabet_bar.php'); ?>
 
 <?php require_once('../../components/search_bar.html'); ?>
 

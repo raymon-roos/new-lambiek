@@ -9,32 +9,27 @@
     <title>test</title>
 </head>
 
+<body class="bg-old_paper-100 ">
+<div class="w-9/12 mx-auto bg-old_paper-200 p-2">
 <?php require_once('src/components/header.html'); ?>
 
-<body class="bg-old_paper-100">
-<div class="w-9/12 mx-auto">
-    <article class="bg-old_paper-200 p-28">
-        <h2 class="text-3xl font-bold font-mono text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-        </h2>
-        <section class="text-justify font-serif">
-            <p class="mb-10">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae,
-                exercitationem tenetur distinctio magni voluptatem aliquid
-                labore perspiciatis corrupti. Ipsum perferendis vero voluptatibus dolore. Eos,
-                nihil porro eaque molestiae exercitationem sunt? Animi aperiam et perferendis
-                quidem amet, ipsam autem est eius, voluptate temporibus exercitationem cum odit
-                reiciendis fuga? Blanditiis delectus ratione repellendus ea similique
-                necessitatibus accusamus ex, voluptatum, velit, mollitia error? Rem, doloribus.
-                Necessitatibus debitis, nisi neque vero dolorem quis eum architecto quibusdam
-                incidunt pariatur mollitia velit! Officia corrupti cum dolorum vitae harum
-                inventore, architecto, excepturi doloribus, numquam suscipit alias sit! Quis
-                dolorum natus maxime, vitae similique voluptatem consequatur ex iure
-                repudiandae culpa. Modi quae illum, perferendis animi necessitatibus, nobis
-                voluptate, consectetur sed et temporibus ab saepe reprehenderit doloribus
-                fugiat similique? Atque hic esse, dignissimos debitis dolore optio consectetur
-                omnis facilis officia praesentium vel fugiat quae veniam voluptatum corrupti
-                architecto qui, quis suscipit itaque tempore ipsa officiis neque. Nam, cumque
-                quae.
+    <article class="">
+        <section class="[font-family:news_cycle]">
+            <h1 class="mx-auto w-fit uppercase text-modern_white_smoke text-xl font-semibold font-sans">Comic Book shop Lambiek</h1>
+            <br>
+            <p class="w-3/5 mx-auto">
+                Lambiek is Europe's first comic shop and probably the oldest existing comic
+                shop worldwide. It has been a hallmark in the world of comics since the opening
+                in 1968.
+
+                Our site presents the Comiclopedia, an online encyclopedia of thousands of
+                comic artists from all over the world. You can also browse through our webshop
+                for old and new comics, prints and original artwork. We ship worldwide.
+
+                Come and visit our shop when you are in Amsterdam! From Central Station, you
+                can take any metro train of the subway system. Ride one stop to Nieuwmarkt
+                station. Take the Koningsstraat exit and you will find us at the top of the
+                escalator!
             </p>
         </section>
     </article>
