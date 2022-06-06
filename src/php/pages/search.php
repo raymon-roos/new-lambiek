@@ -22,7 +22,7 @@ foreach ($_POST as $inputField => $inputValue) {
 }
 
 // Remove any post data from our array, if it wasn't matched correctly earlier
-// array_filter will remove elements that evaluate as empty(), which a string '' does. 
+// array_filter() will remove elements that evaluate as empty(), which the string '' does. 
 $filters = ($filters) ? array_filter($filters) : ''; 
 
 require_once('../common/pdo.php');
