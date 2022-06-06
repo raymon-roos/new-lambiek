@@ -16,9 +16,14 @@ foreach ($_POST as $inputField => $inputValue) {
             'filterRealName' => 'realname',
             'filterPageTitle' => 'pagetitle',
             'filterKeywords' => 'keywords', 
+            default => ''
         };
     }
 }
+
+// Remove any post data from our array, if it wasn't matched correctly earlier
+// array_filter will remove elements that evaluate as empty(), which a string '' does. 
+$filters = ($filters) ? array_filter($filters) : ''; 
 
 require_once('../common/pdo.php');
 $results = (!empty($filters)) ? 
