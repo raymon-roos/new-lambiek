@@ -35,7 +35,7 @@ $updatedArticles = findUpdatedArticles()
 
     <?php require_once('../../components/comiclopedia_carousel.php'); ?>
     
-    <section class="grid gap-2 grid-cols-3 grid-flow-row place-content-center">
+    <!-- <section class="grid gap-2 grid-cols-3 grid-flow-row place-content-center">
             <?php foreach ($articles as $article) { ?>
                 <div class="">
                     <a href="artist_details.php?name=<?= $article['lastname'] ?>" 
@@ -45,7 +45,7 @@ $updatedArticles = findUpdatedArticles()
                     </a>
                 </div>
             <?php } ?>
-    </section>
+    </section> -->
 </article>
 </div>
 
