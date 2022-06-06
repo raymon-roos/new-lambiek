@@ -7,7 +7,16 @@ if (!$_POST['search']) {
 
 foreach ($_POST as $inputField => $inputValue) {
     if (preg_match('/^filter/', $inputField)) {
-        $filters[] = strtolower(str_replace('filter', '', $inputField));
+        $filters[] = match ($inputField) {
+            // Preventing SQL injection by hardcoding possible filters 
+            // Otherwise an attacker could create additional form elements
+            // in their client, with malicious sql in the name atribute
+            'filterFirstName' => 'firstname',
+            'filterLastName' => 'lastname',
+            'filterRealName' => 'realname',
+            'filterPageTitle' => 'pagetitle',
+            'filterKeywords' => 'keywords', 
+        };
     }
 }
 
