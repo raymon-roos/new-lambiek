@@ -1,5 +1,5 @@
 <div id="updatedArticlesContainer" 
-    class="flex flex-col justify-center items-center w-1/3 my-2 mx-auto bg-modern_dark_blue text-modern_white_smoke shadow-xl">
+    class="flex flex-col justify-center items-center w-1/2 my-2 mx-auto bg-modern_dark_blue text-modern_white_smoke shadow-xl">
     <h1>Recently updated articles:</h1>
     <div id="carouselContainer" class="flex flex-row justify-between items-center w-full">
         <svg id="chevronLeft" fill="currentColor" stroke-linecap="round" stroke-linejoin="round" 
@@ -9,7 +9,7 @@
                 c12.354,12.354,12.354,32.388,0,44.748L173.525,225.92l171.903,171.909c12.354,12.354,12.354,32.391,0,44.744
                 c-12.354,12.365-32.386,12.365-44.745,0l-194.29-194.281C100.226,242.115,97.141,234.018,97.141,225.92z"/>
         </svg>
-        <div id="carousel" class="select-none bg-old_paper-100 text-comic_blue w-[200px] h-[310px] p-2 shadow-inner" >
+        <div id="carousel" class="select-none bg-modern_white_smoke text-comic_blue w-[220px] h-fit] p-2 shadow-inner" >
             <?php $i = 1; 
             foreach ($updatedArticles as $article) { ?>
                 <div id="carouselChild<?= $i++ ?>" class="[display:none]" >

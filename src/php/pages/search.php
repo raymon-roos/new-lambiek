@@ -23,7 +23,7 @@ foreach ($_POST as $inputField => $inputValue) {
 
 // Remove any post data from our array, if it wasn't matched correctly earlier
 // array_filter() will remove elements that evaluate as empty(), which the string '' does. 
-$filters = ($filters) ? array_filter($filters) : ''; 
+$filters = (!empty($filters)) ? array_filter($filters) : ''; 
 
 require_once('../common/pdo.php');
 $results = (!empty($filters)) ? 
@@ -44,7 +44,7 @@ $results = (!empty($filters)) ?
 
 
 <body class="bg-old_paper-100">
-<div class="w-9/12 mx-auto p-2 bg-old_paper-200">
+<div class="w-9/12 min-w-fit mx-auto p-2 bg-old_paper-200">
 
     <?php require_once('../../components/header.html'); ?>
 
@@ -53,10 +53,6 @@ $results = (!empty($filters)) ?
     <article class="bg-old_paper-200 px-8">
         <section>
             <div class="grid gap-2 grid-cols-2 grid-flow-row place-content-between">
-
-            <div>
-                <?php (isset($_POST) ? var_dump($_POST) : '' ) ?>
-            </div>
 
                 <?php if ($results) {
                     foreach ($results as $result) { ?>

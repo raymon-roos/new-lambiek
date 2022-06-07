@@ -18,7 +18,7 @@ $artists = findArtistsByLetter($_GET['filter']);
 
 
 <body class="bg-old_paper-100">
-<div class="w-9/12 mx-auto p-2 bg-old_paper-200">
+<div class="w-9/12 min-w-fit mx-auto p-2 bg-old_paper-200">
 
 <?php require_once('../../components/header.html'); ?>
 

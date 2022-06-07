@@ -19,15 +19,16 @@ $article = findArticleByName($_GET['name']);
 
 
 <body class="bg-old_paper-100">
-<div class="w-9/12 mx-auto p-2 bg-old_paper-200 ">
+<div class="w-9/12 mx-auto p-2 bg-old_paper-200">
 
 <?php require_once('../../components/header.html'); ?>
 
-    <article class="p-8">
-        <section class="">
+    <article class="w-9/12 mx-auto p-8">
+        <section class="w-fit ">
             <?php echo ($article) ?: 'No article was found for this artist.' ?>
         </section>
     </article>
+    <script src="../../js/fix_comiclopedia_articles.js"></script>
 </div>
 
 </body>

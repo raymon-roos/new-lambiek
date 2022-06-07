@@ -18,7 +18,7 @@ $updatedArticles = findUpdatedArticles()
 </head>
 
 <body class="bg-old_paper-100">
-<div class="w-9/12 mx-auto bg-old_paper-200 p-2">
+<div class="w-9/12 min-w-fit mx-auto bg-old_paper-200 p-2">
 
 <?php require_once('../../components/header.html'); ?>
 
