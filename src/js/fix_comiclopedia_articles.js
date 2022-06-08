@@ -6,7 +6,7 @@ for (const image of images) {
     image.classList.add("inline", "mx-auto", "p-6", "bg-modern_dark_blue", "shadow-xl");
 }
 
-var anchors = document.getElementsByTagName("a");
+var anchors = document.querySelectorAll("section a");
 for (const anchor of anchors) {
     anchor.classList.add("text-blue-800", "mx-auto", "w-fit", "inline");
 }
