@@ -79,3 +79,31 @@ function searchArticles(
 
     return ($articles) ?: false;
 }
+
+function getSearchSuggestions(
+    string $searchTerm, 
+    array $filters = ['firstname', 'lastname', 'realname', 'pagetitle', 'keywords'], 
+    array $limit = [0,20]
+): array | false {
+
+    foreach ($filters as $columnName) {
+        $sqlString[] = "`$columnName` LIKE :searchTerm";
+    }
+    $sqlString = implode(' OR ', $sqlString);
+
+    $articles = DB->prepare(
+        "SELECT `firstname`, `lastname` 
+        FROM `comiclopedia` 
+        WHERE $sqlString
+        GROUP BY `lastname`
+        LIMIT :limstart, :limend"
+    );
+    $articles->bindValue(':searchTerm', "$searchTerm%", PDO::PARAM_STR);
+    $articles->bindValue(':limstart', $limit[0], PDO::PARAM_INT);
+    $articles->bindValue(':limend', $limit[1], PDO::PARAM_INT);
+    $articles->execute();
+
+    $articles = $articles->fetchAll();
+
+    return ($articles) ?: false;
+}

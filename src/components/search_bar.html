@@ -1,8 +1,12 @@
 <div class="mx-auto px-6 my-8 w-fit bg-modern_dark_blue select-none shadow-xl">
     <form action="search.php" method="POST" class="w-full h-28 shadow-md flex flex-col justify-evenly">
         <div class="flex justify-center">
-            <input type="search" name="search" id="search" placeholder="Search the Comiclopedia"
+            <input type="search" name="search" id="search" list="suggestions" placeholder="Search the Comiclopedia"
                 class="rounded-full px-2 w-3/5 outline-none hover:shadow-inner">
+            <datalist id="suggestions">
+                <option></option>
+            </datalist>
+
             <input type="submit" value="search"
                 class="bg-old_paper-100 ml-4 rounded-xl px-2 py-1 w-fit hover:bg-modern_light_blue hover:shadow-inner">
         </div>
@@ -33,5 +37,6 @@
                 class="bg-old_paper-100 m-1 rounded-xl px-2 py-1 hover:shadow-inner hover:bg-modern_light_blue">Keywords</label>
         </div>
         <script src="../../js/search_filters.js"></script>
+        <script src="../../js/search_suggestions.js"></script>
     </form>
 </div>
