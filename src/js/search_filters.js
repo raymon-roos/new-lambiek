@@ -2,8 +2,9 @@ let filterLabels = document.querySelectorAll("#search_filter_buttons_container l
 
 filterLabels.forEach(clickableFilter => {
     clickableFilter.addEventListener("click", function () {
-        clickableFilter.style.border = "1px solid blue";
+        clickableFilter.classList.toggle("bg-modern_light_blue");
+        // clickableFilter.classList.toggle("text-modern_white_smoke");
+        // clickableFilter.classList.toggle("font-bold");
         filterToggleID = clickableFilter.getAttribute("for");
-        document.querySelector(`[id="${filterToggleID}"]`).value = "checked";
     });
 });

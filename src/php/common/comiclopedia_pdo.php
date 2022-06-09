@@ -26,6 +26,18 @@ function findRandomArticles(): array | false
     return ($articles) ?: false;
 }
 
+function findUpdatedArticles(): array | false
+{
+    $newestArticles = DB->query(
+        "SELECT * 
+        FROM `comiclopedia` 
+        ORDER BY `lastupdate` 
+        LIMIT 6"
+    )->fetchAll();
+
+    return ($newestArticles) ?: false;
+}
+
 
 function findArticleByName(string $name): string | false
 {

@@ -7,9 +7,23 @@ if (!$_POST['search']) {
 
 foreach ($_POST as $inputField => $inputValue) {
     if (preg_match('/^filter/', $inputField)) {
-        $filters[] = strtolower(str_replace('filter', '', $inputField));
+        $filters[] = match ($inputField) {
+            // Preventing SQL injection by hardcoding possible filters 
+            // Otherwise an attacker could create additional form elements
+            // in their client, with malicious sql in the name atribute
+            'filterFirstName' => 'firstname',
+            'filterLastName' => 'lastname',
+            'filterRealName' => 'realname',
+            'filterPageTitle' => 'pagetitle',
+            'filterKeywords' => 'keywords', 
+            default => ''
+        };
     }
 }
+
+// Remove any post data from our array, if it wasn't matched correctly earlier
+// array_filter() will remove elements that evaluate as empty(), which the string '' does. 
+$filters = (!empty($filters)) ? array_filter($filters) : ''; 
 
 require_once('../common/pdo.php');
 $results = (!empty($filters)) ? 
@@ -28,10 +42,11 @@ $results = (!empty($filters)) ?
     <title>Search</title>
 </head>
 
-<?php require_once('../../components/header_comiclopedia.html'); ?>
 
 <body class="bg-old_paper-100">
-<div class="w-9/12 min-w-fit mx-auto bg-old_paper-200">
+<div class="w-9/12 min-w-fit mx-auto p-2 bg-old_paper-200">
+
+    <?php require_once('../../components/header.html'); ?>
 
     <?php require_once('../../components/search_bar.html'); ?>
 

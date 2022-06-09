@@ -1,6 +1,5 @@
 <?php
 
-require_once('../../components/header.html');
 require_once('../common/pdo.php'); 
 
 $comic = findComicByID($_GET['comicID']);
@@ -17,11 +16,13 @@ $comic = findComicByID($_GET['comicID']);
     <link rel="stylesheet" href="../../../dist/output.css">
 </head>
 
-<?php require_once('../../components/header.html'); ?>
 
 <body class="bg-old_paper-100">
-<div class="w-9/12 mx-auto">
-    <article class="bg-old_paper-200 p-28">
+<div class="w-9/12 min-w-fit mx-auto p-2 bg-old_paper-200 ">
+
+<?php require_once('../../components/header.html'); ?>
+
+    <article class="p-28">
         <section class="text-justify font-serif">
             <table>
             <?php foreach ($comic as $comicProperty) { ?>
