@@ -25,7 +25,13 @@ $article = findArticleByName($_GET['name']);
 
     <article class="w-9/12 mx-auto p-8">
         <section class="w-fit ">
-            <?php echo ($article) ?: 'No article was found for this artist.' ?>
+            <?= ($article['content']) ?: 'No article was found for this artist.' ?>
+        </section>
+        <section class="w-full flex justify-center mt-5 italic">
+            <?= ($article['copyright']) ?: 'All rights reserved' ?>
+        </section>
+        <section class="w-full flex justify-center mt-5">
+            <?= ($article['credits']) ?: '' ?>
         </section>
     </article>
     <script src="../../js/fix_comiclopedia_articles.js"></script>

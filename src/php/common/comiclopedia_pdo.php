@@ -39,23 +39,22 @@ function findUpdatedArticles(): array | false
 }
 
 
-function findArticleByName(string $name): string | false
+function findArticleByName(string $name): array | false
 {
     $article = DB->prepare(
-        "SELECT `content` 
+        "SELECT `content`, `copyright`, `credits` 
         FROM `comiclopedia` 
         WHERE `lastname` = :lastname"
     );
     $article->execute([':lastname' => $name]);
     $article = $article->fetch();
 
-    return ($article['content']) ?: false;
+    return ($article) ?: false;
 }
 
 function searchArticles(
     string $searchTerm, 
-    array $filters = ['firstname', 'lastname', 'realname', 'pagetitle', 'keywords'], 
-    array $limit = [0,20]
+    array $filters = ['firstname', 'lastname', 'name', 'realname', 'pagetitle', 'keywords'], 
 ): array | false {
 
     foreach ($filters as $columnName) {
@@ -64,18 +63,39 @@ function searchArticles(
     $sqlString = implode(' OR ', $sqlString);
 
     $articles = DB->prepare(
-        "SELECT * 
+        "SELECT `firstname`, `lastname`, `name`, `realname`, `pagetitle`, `keywords`, `country`, `category`, `online` 
         FROM `comiclopedia` 
-        WHERE $sqlString
+        WHERE ($sqlString)
+        AND `category` NOT LIKE 'obsolete' 
+        AND `online` = '1'
         ORDER BY `lastname`
-        LIMIT :limstart, :limend"
+        LIMIT 60"
     );
-    $articles->bindValue(':searchTerm', "%$searchTerm%", PDO::PARAM_STR);
-    $articles->bindValue(':limstart', $limit[0], PDO::PARAM_INT);
-    $articles->bindValue(':limend', $limit[1], PDO::PARAM_INT);
-    $articles->execute();
 
+    $articles->execute([':searchTerm' => "%$searchTerm%"]);
     $articles = $articles->fetchAll();
 
     return ($articles) ?: false;
+}
+
+function getSearchSuggestions(string $searchTerm): array
+{
+    $articles = DB->prepare(
+        "SELECT `name`
+        FROM `comiclopedia` 
+        WHERE (`firstname` LIKE :searchTerm 
+            OR `lastname` LIKE :searchTerm 
+            OR `name` LIKE :searchTerm
+            OR `realname` LIKE :searchTerm 
+            OR `pagetitle` LIKE :searchTerm 
+            OR `keywords` LIKE :searchTerm)
+            AND `category` NOT LIKE 'obsolete' 
+            AND `online` = '1'
+        GROUP BY `lastname`
+        LIMIT 25"
+    );
+    $articles->execute([':searchTerm' => "$searchTerm%"]);
+    $articles = $articles->fetchAll();
+
+    return ($articles) ?: [];
 }
