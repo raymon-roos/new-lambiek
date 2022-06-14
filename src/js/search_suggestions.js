@@ -10,7 +10,7 @@ function fetchSuggestions() {
             .then(suggestions =>
                 suggestions.forEach(suggestion => {
                     if (suggestion) {
-                        suggestionsContainer.innerHTML += `<option value="${suggestion.firstname} ${suggestion.lastname}">`;
+                        suggestionsContainer.innerHTML += `<option value="${suggestion.name}">`;
                     } else {
                         suggestionsContainer.innerHTML = "";
                     }

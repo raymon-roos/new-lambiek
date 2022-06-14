@@ -16,18 +16,17 @@ foreach ($_POST as $inputField => $inputValue) {
             'filterRealName' => 'realname',
             'filterPageTitle' => 'pagetitle',
             'filterKeywords' => 'keywords', 
+            'filterContent' => 'content',
+            'filterCountry' => 'country',
             default => ''
         };
     }
 }
 
-// Remove any post data from our array, if it wasn't matched correctly earlier
-// array_filter() will remove elements that evaluate as empty(), which the string '' does. 
-$filters = (!empty($filters)) ? array_filter($filters) : ''; 
-
+// array_filter() will remove elements that evaluate as empty()
 require_once('../common/pdo.php');
 $results = (!empty($filters)) ? 
-    searchArticles($_POST['search'], $filters) : 
+    searchArticles($_POST['search'], array_filter($filters)) : 
     searchArticles($_POST['search']);
 
 ?>
@@ -50,31 +49,30 @@ $results = (!empty($filters)) ?
 
     <?php require_once('../../components/search_bar.html'); ?>
 
-    <article class="bg-old_paper-200 px-8">
-        <section>
-            <div class="grid gap-2 grid-cols-2 grid-flow-row place-content-between">
-
+    <article class="bg-old_paper-200 px-8 ">
+        <section class="grid gap-2 grid-cols-3 place-content-evenly w-full mx-auto">
                 <?php if ($results) {
                     foreach ($results as $result) { ?>
-                    <div class="flex">
+                    <div class="flex flex-col items-center w-4/5 bg-comic_blue shadow-xl rounded-xl">
                         <a href="artist_details.php?name=<?= $result['lastname'] ?>" 
-                            class="flex flex-col ">
-                            <img src="http://unsplash.it/165/220" alt="oops" width="165" height="220" class="">
-                            <p class="flex-wrap ">Name: <?= "{$result['firstname']} {$result['lastname']}" ?></p>
-                            <p class="flex-wrap ">Country: <?= $result['country'] ?></p>
+                            class="flex flex-col w-full items-center">
+                            <!-- <img src="http://unsplash.it/165/220" alt="oops" width="165" height="220" class=""> -->
+                            <p class="flex-wrap text-modern_white_smoke">Name: <?= $result['name'] ?></p>
+                            <p class="flex-wrap text-modern_white_smoke">Country: <?= $result['country'] ?></p>
                         </a>
                     </div>
                     <?php }
                 } else { ?>
                     <p>No matches were found</p>
                 <?php } ?>
-            </div>
-            <span class="flex justify-center">
+        </section>
+        <section>
+            <div class="flex justify-center">
                 <p>Show: (not yet working)</p>
                 <a href="search.php?limit=20">20|</a>
                 <a href="search.php?limit=50">50|</a>
                 <a href="search.php?limit=100">100</a>
-            </span>
+            </div>
         </section>
     </article>
 
