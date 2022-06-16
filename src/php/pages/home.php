@@ -11,12 +11,13 @@ $updatedArticles = findUpdatedArticles();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/index.ico">
+    <title>Lambiek</title>
     <link rel="stylesheet" href="../../../dist/output.css">
-    <title>test</title>
 </head>
 
 <body class="bg-old_paper-100 ">
-<div class="w-9/12 mx-auto bg-old_paper-200 p-2">
+<div class="w-9/12 mx-auto bg-old_paper-200 p-4">
 <?php require_once('src/components/header.html'); ?>
 
     <article class="">
