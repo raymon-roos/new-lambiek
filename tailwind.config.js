@@ -24,6 +24,12 @@ module.exports = {
                 comic_blue: {
                     DEFAULT: "#3477ab",
                 },
+                comic_orange: {
+                    DEFAULT: "#ff4400",
+                },
+                comic_yellow: {
+                    DEFAULT: "#f7a204",
+                },
             },
         },
     },
