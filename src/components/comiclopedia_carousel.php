@@ -15,12 +15,16 @@
                 <div id="carouselChild<?= $i++ ?>" class="[display:none]" >
                     <a href="artist_details.php?name=<?= $article['lastname'] ?>" 
                         class="flex flex-col items-center">
-                        <img src="http://unsplash.it/165/220" alt="oops" width="165" height="220" class="">
-                        <h4 class="flex-wrap break-inside-auto mt-6"><?php echo"{$article['firstname']} {$article['lastname']}" ?></h4>
+                            <?php if ($article['altpics'] == 'comicolopedia') {
+                                $imgURI = str_replace(['.html', '.htm'], '/', $article['link']) . $article['imgofn']; ?>
+                            <img src="https://lambiek.net/artists/image/<?= $imgURI ?>" alt=" something went wrong " width="80%" height="80%">
+                            <?php } else { ?>
+                            <img src="https://lambiek.net/artists/image/<?= $article['imgofn'] ?>" alt="" width="80%" height="80%">
+                            <?php } ?>
+                        <h4 class="flex-wrap break-inside-auto mt-6"><?= $article['name'] ?></h4>
                     </a>
                 </div>
-                <?php 
-            } ?> 
+            <?php } ?> 
         </div>
         <svg id="chevronRight" fill="currentColor" stroke-linecap="round" stroke-linejoin="round" 
             stroke-width="2" viewBox="0 0 185.343 185.343"
@@ -31,5 +35,5 @@
         </svg>
     </div>
 </div>
-<script src="../../js/comclopedia_carousel.js"></script>
+<script src="src/js/comclopedia_carousel.js"></script>
 

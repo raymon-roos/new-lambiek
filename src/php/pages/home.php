@@ -1,3 +1,9 @@
+<?php
+
+require_once('src/php/common/pdo.php');
+$updatedArticles = findUpdatedArticles();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,6 +39,7 @@
             </p>
         </section>
     </article>
+    <?php require_once('src/components/comiclopedia_carousel.php'); ?>
 </div>
 </body>
 

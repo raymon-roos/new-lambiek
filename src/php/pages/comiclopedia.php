@@ -2,8 +2,6 @@
 
 require_once('../common/pdo.php'); 
 
-$articles = findRandomArticles();
-$updatedArticles = findUpdatedArticles()
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +16,7 @@ $updatedArticles = findUpdatedArticles()
 </head>
 
 <body class="bg-old_paper-100">
-<div class="w-9/12 min-w-fit mx-auto bg-old_paper-200 p-2">
+<div class="w-9/12  mx-auto bg-old_paper-200 p-2">
 
 <?php require_once('../../components/header.html'); ?>
 
@@ -32,20 +30,24 @@ $updatedArticles = findUpdatedArticles()
 <?php require_once('../../components/search_bar.html'); ?>
 
 <article class="bg-old_paper-200 px-8">
+    <section class="text-center">
+        <h1 class="font-semibold">
+            Welcome to the Comiclopedia, an illustrated compendium of over 14,000 comic
+            artists from around the world. Find your favorite artists, or discover new
+            ones!
+        </h1>
+        <p>
+            Online since 1 November 1999, the Comiclopedia is the world's largest overview
+            of comic artists, and the brainchild of comic shop Lambiek's founder Kees
+            Kousemaker (1942-2010). Kees was at the vanguard of promoting comics as art,
+            and both the Lambiek store and the website are continuing in his spirit. The
+            editors/writers of the Comiclopedia are Bas Schuddeboom and Kjell Knudde.
+            Please contact them for corrections or additions.
 
-    <?php require_once('../../components/comiclopedia_carousel.php'); ?>
-    
-    <!-- <section class="grid gap-2 grid-cols-3 grid-flow-row place-content-center">
-            <?php foreach ($articles as $article) { ?>
-                <div class="">
-                    <a href="artist_details.php?name=<?= $article['lastname'] ?>" 
-                        class="flex flex-col items-center">
-                        <img src="http://unsplash.it/165/220" alt="oops" width="165" height="220" class="">
-                        <h4 class="flex-wrap break-inside-auto"><?php echo"{$article['firstname']} {$article['lastname']}" ?></h4>
-                    </a>
-                </div>
-            <?php } ?>
-    </section> -->
+            Also visit: Lambiek's overview of Dutch Comics History (in Dutch) The history
+            of Europe's oldest comics shop: The Story of Lambiek (in English and Dutch)
+        </p>
+    </section>
 </article>
 </div>
 
