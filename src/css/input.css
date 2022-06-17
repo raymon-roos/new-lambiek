@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bodytext {
+    /* @apply my-8 */
+}
+
+.cmc-img {
+    @apply w-fit break-words
+}
+
+.cmc-img img {
+    @apply inline p-6 bg-comic_blue shadow-xl
+}
+
+#comiclopedia_article a {
+    @apply text-comic_blue mx-auto w-fit inline
+}

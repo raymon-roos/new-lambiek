@@ -2,7 +2,7 @@
 
 require_once('../common/pdo.php'); 
 
-$article = findArticleByName($_GET['name']);
+$article = findArticleByID($_GET['artist']);
 ?>
 
 <!DOCTYPE html>
@@ -24,8 +24,8 @@ $article = findArticleByName($_GET['name']);
 
 <?php require_once('../../components/header.html'); ?>
 
-    <article class="w-9/12 mx-auto p-8">
-        <section class="w-fit ">
+    <article class="w-9/12 mx-auto p-8" id="comiclopedia_article">
+        <section class="flex flex-col items-center justify-evenly w-full ">
             <?= ($article['content']) ?: 'No article was found for this artist.' ?>
         </section>
         <section class="w-full flex justify-center mt-5 italic">
@@ -34,9 +34,13 @@ $article = findArticleByName($_GET['name']);
         <section class="w-full flex justify-center mt-5">
             <?= ($article['credits']) ?: '' ?>
         </section>
+        <section class="w-full flex justify-center mt-5">
+            <?= ($article['website'] && $article['website'] !== 'default.xhtml') ? $article['website'] : '' ?>
+        </section>
     </article>
     <script src="../../js/fix_comiclopedia_articles.js"></script>
-</div>
 
+
+</div>
 </body>
 </html>

@@ -44,14 +44,15 @@ function findUpdatedArticles(): array | false
     return ($newestArticles) ?: false;
 }
 
-function findArticleByName(string $name): array | false
+function findArticleByID(int $id): array | false
 {
     $article = DB->prepare(
-        "SELECT `content`, `copyright`, `credits` 
+        "SELECT `content`, `copyright`, `credits`, `website` 
         FROM `comiclopedia` 
-        WHERE `lastname` = :lastname"
+        WHERE `id` = :id"
     );
-    $article->execute([':lastname' => $name]);
+    $article->bindValue(':id', $id, PDO::PARAM_INT);
+    $article->execute();
     $article = $article->fetch();
 
     return ($article) ?: false;
@@ -68,7 +69,7 @@ function searchArticles(
     $sqlString = implode(' OR ', $sqlString);
 
     $articles = DB->prepare(
-        "SELECT `firstname`, `lastname`, `life`, `imgofn`, 
+        "SELECT pedia.`id`, `firstname`, `lastname`, `life`, `imgofn`, 
             pedia.`pagelink` AS `link`, 
             pics.`category` AS altpics
         FROM `comiclopedia` AS `pedia` LEFT JOIN `comiclopedia_pics` AS `pics`

@@ -55,7 +55,7 @@ $results = (!empty($filters)) ?
                 <?php if ($results) {
                     foreach ($results as $result) { ?>
                     <div class="w-4/5 bg-modern_white_smoke shadow-xl">
-                        <a href="artist_details.php?name=<?= $result['lastname'] ?>" class="flex flex-col w-full items-center">
+                        <a href="artist_details.php?artist=<?= $result['id'] ?>" class="flex flex-col w-full items-center">
                             <p class="flex-wrap text-comic_blue uppercase font-semibold"><?= $result['firstname'] ?> <?= $result['lastname'] ?></p>
                             <?php if ($result['altpics'] == 'comicolopedia') {
                                 $imgURI = str_replace(['.html', '.htm'], '/', $result['link']) . $result['imgofn']; ?>
