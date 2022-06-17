@@ -16,8 +16,8 @@ require_once('../common/pdo.php');
     <link rel="stylesheet" href="../../../dist/output.css">
 </head>
 
-<body class="bg-old_paper-100">
-<div class="w-9/12  mx-auto bg-old_paper-200 p-4">
+<body>
+<div class="page_content">
 
 <?php require_once('../../components/header.html'); ?>
 

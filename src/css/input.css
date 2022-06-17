@@ -2,8 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    body {
+        /* Background colour used for the gaps along the sides of the pages */
+        @apply bg-old_paper-100
+    }
+
+    .page_content {
+        /* Class used as foreground that contains most other components/content  */
+        @apply w-5/6 max-w-full min-h-screen h-fit mx-auto bg-old_paper-200 p-4 px-6
+    }
+}
+
+/* Customizing styling for classes used inside the 
+comiclopedia article content, as they exists in the DB */
 .bodytext {
-    /* @apply my-8 */
+    @apply my-8
 }
 
 .cmc-img {
@@ -11,7 +25,7 @@
 }
 
 .cmc-img img {
-    @apply inline p-6 bg-comic_blue shadow-xl
+    @apply inline p-3 bg-modern_white_smoke shadow-xl
 }
 
 #comiclopedia_article a {

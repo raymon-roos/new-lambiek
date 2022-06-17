@@ -17,10 +17,8 @@ $article = findArticleByID($_GET['artist']);
     <link rel="stylesheet" href="../../../dist/output.css">
 </head>
 
-
-
-<body class="bg-old_paper-100">
-<div class="w-9/12 mx-auto p-4 bg-old_paper-200">
+<body>
+<div class="page_content">
 
 <?php require_once('../../components/header.html'); ?>
 
