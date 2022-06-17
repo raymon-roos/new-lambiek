@@ -40,7 +40,7 @@ $article = findArticleByID($_GET['artist']);
     </article>
     <script src="../../js/fix_comiclopedia_articles.js"></script>
 
-
+<?php require_once('../../components/footer.html') ?>
 </div>
 </body>
 </html>

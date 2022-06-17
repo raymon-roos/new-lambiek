@@ -32,7 +32,7 @@ $comic = findComicByID($_GET['comicID']);
             </table>
         </section>
     </article>
+<?php require_once('../../components/footer.html') ?>
 </div>
-
 </body>
 </html>
