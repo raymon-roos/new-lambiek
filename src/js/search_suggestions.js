@@ -5,7 +5,7 @@ function fetchSuggestions() {
     if (searchTerm) {
         let suggestionsContainer = document.querySelector("#suggestions");
         suggestionsContainer.innerHTML = "";
-        fetch(`http://lam.bit/src/php/common/search_suggestions_api.php?search=${searchTerm}`)
+        fetch(`../common/search_suggestions_api.php?search=${searchTerm}`)
             .then(response => response.json())
             .then(suggestions =>
                 suggestions.forEach(suggestion => {

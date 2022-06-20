@@ -14,7 +14,7 @@ $comics = findRandomComics();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="img/index.ico">
     <title>Comiclopedia</title>
-    <link rel="stylesheet" href="/dist/output.css">
+    <link rel="stylesheet" href="../../../dist/output.css">
 </head>
 
 <body>

@@ -2,8 +2,8 @@
 
 function findArtistsByLetter(string $letter): array | false 
 {
-    $artists = DB->prepare(
-        "SELECT `firstname`, `lastname` 
+    $artists = DB()->prepare(
+        "SELECT `id`, `firstname`, `lastname` 
         FROM `comiclopedia` 
         WHERE LEFT(`lastname`,1) = :letter 
         GROUP BY `lastname`"
@@ -16,7 +16,7 @@ function findArtistsByLetter(string $letter): array | false
 
 function findRandomArticles(): array | false
 {
-    $articles = DB->query(
+    $articles = DB()->query(
         "SELECT * 
         FROM `comiclopedia` 
         ORDER BY RAND() 
@@ -28,7 +28,7 @@ function findRandomArticles(): array | false
 
 function findUpdatedArticles(): array | false
 {
-    $newestArticles = DB->query(
+    $newestArticles = DB()->query(
         "SELECT `lastname`, `name`, `imgofn`, `lastupdate`, 
             pedia.`pagelink` AS `link`, 
             pics.`category` as `altpics`
@@ -46,7 +46,7 @@ function findUpdatedArticles(): array | false
 
 function findArticleByID(int $id): array | false
 {
-    $article = DB->prepare(
+    $article = DB()->prepare(
         "SELECT `content`, `copyright`, `credits`, `website` 
         FROM `comiclopedia` 
         WHERE `id` = :id"
@@ -68,7 +68,7 @@ function searchArticles(
     }
     $sqlString = implode(' OR ', $sqlString);
 
-    $articles = DB->prepare(
+    $articles = DB()->prepare(
         "SELECT pedia.`id`, `firstname`, `lastname`, `life`, `imgofn`, 
             pedia.`pagelink` AS `link`, 
             pics.`category` AS altpics
@@ -89,7 +89,7 @@ function searchArticles(
 
 function getSearchSuggestions(string $searchTerm): array
 {
-    $articles = DB->prepare(
+    $articles = DB()->prepare(
         "SELECT `name`
         FROM `comiclopedia` 
         WHERE (`firstname` LIKE :searchTerm 
