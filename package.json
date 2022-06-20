@@ -1,0 +1,27 @@
+{
+    "name": "lam-bit",
+    "version": "0.0.1",
+    "description": "A school project from Bit Academy to deliver a website for comicbook store Lambiek ",
+    "main": "index.js",
+    "scripts": {
+        "tails": "./node_modules/.bin/tailwindcss -i src/css/input.css -o dist/output.css --watch",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@bitlab.bit-academy.nl:221b9169-0a37-11ec-a943-4213e7ee7fac/00ae2a7c-0a38-11ec-a943-4213e7ee7fac/Eindproject-Jaar-69111524-507a978b.git"
+    },
+    "keywords": [
+        "school-project",
+        "bit-academy",
+        "website",
+        "wiki",
+        "comics",
+        "comic-books"
+    ],
+    "author": "Batuhan, Brian, Erhan, Raymon",
+    "license": "ISC",
+    "devDependencies": {
+        "tailwindcss": "^3.0.24"
+    }
+}
