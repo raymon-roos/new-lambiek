@@ -29,14 +29,6 @@ $results = (!empty($filters)) ?
     searchArticles($_POST['search'], array_filter($filters)) : 
     searchArticles($_POST['search']);
 
-function replaceAccents($str)
-{
-// Credits to https://gist.github.com/darryl-snow/3817411
-    $str = htmlentities($str, ENT_QUOTES, "UTF-8");
-    $str = preg_replace('/&([a-zA-Z])(uml|acute|grave|circ|tilde|apos);/', '', $str);
-    return urlencode($str);
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -45,13 +37,13 @@ function replaceAccents($str)
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/dist/output.css">
+    <link rel="icon" type="image/x-icon" href="img/index.ico">
     <title>Search</title>
+    <link rel="stylesheet" href="/dist/output.css">
 </head>
 
-
-<body class="bg-old_paper-100">
-<div class="w-9/12  mx-auto p-2 bg-old_paper-200">
+<body>
+<div class="page_content">
 
     <?php require_once('../../components/header.html'); ?>
 
@@ -62,7 +54,7 @@ function replaceAccents($str)
                 <?php if ($results) {
                     foreach ($results as $result) { ?>
                     <div class="w-4/5 bg-modern_white_smoke shadow-xl">
-                        <a href="artist_details.php?name=<?= $result['lastname'] ?>" class="flex flex-col w-full items-center">
+                        <a href="artist_details.php?artist=<?= $result['id'] ?>" class="flex flex-col w-full items-center">
                             <p class="flex-wrap text-comic_blue uppercase font-semibold"><?= $result['firstname'] ?> <?= $result['lastname'] ?></p>
                             <?php if ($result['altpics'] == 'comicolopedia') {
                                 $imgURI = str_replace(['.html', '.htm'], '/', $result['link']) . $result['imgofn']; ?>
@@ -72,8 +64,8 @@ function replaceAccents($str)
                             <?php } ?>
                             <p class="flex-wrap text-comic_blue"><?= $result['life'] ?></p>
                         </a>
-                    </div>
-                    <?php }
+                    </div> 
+                    <?php } 
                 } else { ?>
                     <p>No matches were found</p>
                 <?php } ?>
@@ -87,7 +79,7 @@ function replaceAccents($str)
             </div>
         </section>
     </article>
-
+<?php require_once('../../components/footer.html') ?>
 </div>    
 </body>
 </html>

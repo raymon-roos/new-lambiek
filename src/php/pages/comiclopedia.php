@@ -11,14 +11,17 @@ require_once('../common/pdo.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/index.ico">
     <title>Comiclopedia</title>
     <link rel="stylesheet" href="../../../dist/output.css">
 </head>
 
-<body class="bg-old_paper-100">
-<div class="w-9/12  mx-auto bg-old_paper-200 p-2">
+<body>
+<div class="page_content">
 
 <?php require_once('../../components/header.html'); ?>
+
+<?php require_once('../../components/search_bar.html'); ?>
 
 <div class="ml-24 mb-6 text-xl text-comic_blue font-sans uppercase">
     <h1 class="">Comiclopedia-</h1>
@@ -26,8 +29,6 @@ require_once('../common/pdo.php');
 </div>
 
 <?php require_once('../../components/alphabet_bar.php'); ?>
-
-<?php require_once('../../components/search_bar.html'); ?>
 
 <article class="bg-old_paper-200 px-8">
     <section class="text-center">
@@ -49,7 +50,7 @@ require_once('../common/pdo.php');
         </p>
     </section>
 </article>
+<?php require_once('../../components/footer.html') ?>
 </div>
-
 </body>
 </html>
