@@ -29,6 +29,14 @@ $results = (!empty($filters)) ?
     searchArticles($_POST['search'], array_filter($filters)) : 
     searchArticles($_POST['search']);
 
+function replaceAccents($str)
+{
+// Credits to https://gist.github.com/darryl-snow/3817411
+    $str = htmlentities($str, ENT_QUOTES, "UTF-8");
+    $str = preg_replace('/&([a-zA-Z])(uml|acute|grave|circ|tilde|apos);/', '', $str);
+    return urlencode($str);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -43,22 +51,26 @@ $results = (!empty($filters)) ?
 
 
 <body class="bg-old_paper-100">
-<div class="w-9/12 min-w-fit mx-auto p-2 bg-old_paper-200">
+<div class="w-9/12  mx-auto p-2 bg-old_paper-200">
 
     <?php require_once('../../components/header.html'); ?>
 
     <?php require_once('../../components/search_bar.html'); ?>
 
     <article class="bg-old_paper-200 px-8 ">
-        <section class="grid gap-2 grid-cols-3 place-content-evenly w-full mx-auto">
+        <section class="grid gap-2 grid-cols-3 place-content-evenly place-items-center w-full mx-auto">
                 <?php if ($results) {
                     foreach ($results as $result) { ?>
-                    <div class="flex flex-col items-center w-4/5 bg-comic_blue shadow-xl rounded-xl">
-                        <a href="artist_details.php?name=<?= $result['lastname'] ?>" 
-                            class="flex flex-col w-full items-center">
-                            <!-- <img src="http://unsplash.it/165/220" alt="oops" width="165" height="220" class=""> -->
-                            <p class="flex-wrap text-modern_white_smoke">Name: <?= $result['name'] ?></p>
-                            <p class="flex-wrap text-modern_white_smoke">Country: <?= $result['country'] ?></p>
+                    <div class="w-4/5 bg-modern_white_smoke shadow-xl">
+                        <a href="artist_details.php?name=<?= $result['lastname'] ?>" class="flex flex-col w-full items-center">
+                            <p class="flex-wrap text-comic_blue uppercase font-semibold"><?= $result['firstname'] ?> <?= $result['lastname'] ?></p>
+                            <?php if ($result['altpics'] == 'comicolopedia') {
+                                $imgURI = str_replace(['.html', '.htm'], '/', $result['link']) . $result['imgofn']; ?>
+                            <img src="https://lambiek.net/artists/image/<?= $imgURI ?>" alt=" something went wrong " width="80%" height="80%">
+                            <?php } else { ?>
+                            <img src="https://lambiek.net/artists/image/<?= $result['imgofn'] ?>" alt="" width="80%" height="80%">
+                            <?php } ?>
+                            <p class="flex-wrap text-comic_blue"><?= $result['life'] ?></p>
                         </a>
                     </div>
                     <?php }

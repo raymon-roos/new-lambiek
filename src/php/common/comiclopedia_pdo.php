@@ -29,15 +29,20 @@ function findRandomArticles(): array | false
 function findUpdatedArticles(): array | false
 {
     $newestArticles = DB->query(
-        "SELECT * 
-        FROM `comiclopedia` 
-        ORDER BY `lastupdate` 
+        "SELECT `lastname`, `name`, `imgofn`, `lastupdate`, 
+            pedia.`pagelink` AS `link`, 
+            pics.`category` as `altpics`
+        FROM `comiclopedia` AS `pedia` LEFT JOIN `comiclopedia_pics` AS `pics`
+        ON pedia.`id` = pics.`refid`
+        WHERE pedia.`category` NOT LIKE 'obsolete' 
+        AND pedia.`online` = '1'
+        GROUP BY pedia.`name` 
+        ORDER BY pedia.`lastupdate` DESC
         LIMIT 6"
     )->fetchAll();
 
     return ($newestArticles) ?: false;
 }
-
 
 function findArticleByName(string $name): array | false
 {
@@ -63,15 +68,18 @@ function searchArticles(
     $sqlString = implode(' OR ', $sqlString);
 
     $articles = DB->prepare(
-        "SELECT `firstname`, `lastname`, `name`, `realname`, `pagetitle`, `keywords`, `country`, `category`, `online` 
-        FROM `comiclopedia` 
+        "SELECT `firstname`, `lastname`, `life`, `imgofn`, 
+            pedia.`pagelink` AS `link`, 
+            pics.`category` AS altpics
+        FROM `comiclopedia` AS `pedia` LEFT JOIN `comiclopedia_pics` AS `pics`
+        ON pedia.`id` = pics.`refid`
         WHERE ($sqlString)
-        AND `category` NOT LIKE 'obsolete' 
-        AND `online` = '1'
+        AND pedia.`category` NOT LIKE 'obsolete' 
+        AND pedia.`online` = '1'
+        GROUP BY `name`
         ORDER BY `lastname`
-        LIMIT 60"
+        LIMIT 45"
     );
-
     $articles->execute([':searchTerm' => "%$searchTerm%"]);
     $articles = $articles->fetchAll();
 
@@ -91,7 +99,7 @@ function getSearchSuggestions(string $searchTerm): array
             OR `keywords` LIKE :searchTerm)
             AND `category` NOT LIKE 'obsolete' 
             AND `online` = '1'
-        GROUP BY `lastname`
+        GROUP BY `name`
         LIMIT 25"
     );
     $articles->execute([':searchTerm' => "$searchTerm%"]);
