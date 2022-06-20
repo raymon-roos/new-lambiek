@@ -2,7 +2,7 @@
 
 function findRandomComics(): array | false
 {
-    $comics = DB->query(
+    $comics = DB()->query(
         "SELECT `id`, `title` 
         FROM `catalog` 
         ORDER BY RAND() 
@@ -14,7 +14,7 @@ function findRandomComics(): array | false
 
 function findComicByID(int $id): array | false
 {
-    $comic = DB->prepare("SELECT * FROM `catalog` WHERE `id` = :id");
+    $comic = DB()->prepare("SELECT * FROM `catalog` WHERE `id` = :id");
     $comic->bindValue(':id', $id, PDO::PARAM_INT);
     $comic->execute();
     $comic = $comic->fetch();
@@ -24,7 +24,7 @@ function findComicByID(int $id): array | false
 
 function findComicsByArtistName(string $name): array | false 
 {
-    $comics = DB->prepare(
+    $comics = DB()->prepare(
         "SELECT * 
         FROM `catalog` 
         WHERE `artist` = :artist 
@@ -38,7 +38,7 @@ function findComicsByArtistName(string $name): array | false
 
 function searchComics(string $keyword, array $limit = [0,20]): array | false
 {
-    $articles = DB->prepare(
+    $articles = DB()->prepare(
         "SELECT * 
         FROM `catalog` 
         WHERE `artist` LIKE :keyword 
