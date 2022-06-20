@@ -35,5 +35,5 @@
         </svg>
     </div>
 </div>
-<script src="src/js/comclopedia_carousel.js"></script>
+<script src="../../js/comclopedia_carousel.js"></script>
 
