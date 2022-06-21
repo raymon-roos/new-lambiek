@@ -28,7 +28,7 @@ $artists = findArtistsByLetter($_GET['filter']);
         <section class="font-serif columns-3xs [column-rule:1px_solid_#3477ab]">
             <?php foreach ($artists as $artist) { ?>
                 <p class="break-before-avoid ">
-                    <a href="artist_details.php?name=<?= $artist['lastname'] ?>">
+                    <a href="artist_details.php?artist=<?= $artist['id'] ?>">
                         <?= $artist['lastname'] ?>, <?= $artist['firstname'] ?>
                     </a>
                 </p>

@@ -1,6 +1,6 @@
 <?php
 
-require_once('src/php/common/pdo.php');
+require_once('../common/pdo.php');
 $updatedArticles = findUpdatedArticles();
 ?>
 
@@ -11,14 +11,14 @@ $updatedArticles = findUpdatedArticles();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="img/index.ico">
+    <link rel="icon" type="image/x-icon" href="../../../img/index.ico">
     <title>Lambiek</title>
     <link rel="stylesheet" href="../../../dist/output.css">
 </head>
 
 <body">
 <div class="page_content">
-<?php require_once('src/components/header.html'); ?>
+<?php require_once('../../components/header.html'); ?>
 
     <article class="">
         <section class="[font-family:news_cycle]">
@@ -40,8 +40,8 @@ $updatedArticles = findUpdatedArticles();
             </p>
         </section>
     </article>
-    <?php require_once('src/components/comiclopedia_carousel.php'); ?>
-<?php require_once('src/components/footer.html') ?>
+    <?php require_once('../../components/comiclopedia_carousel.php'); ?>
+<?php require_once('../../components/footer.html') ?>
 </div>
 </body>
 </html>
