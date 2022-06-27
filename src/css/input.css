@@ -5,7 +5,6 @@
 /* Comiclopedia */
 @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
 
-/* Tailwind start */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,22 +17,9 @@
 
     .page_content {
         /* Class used as foreground that contains most other components/content  */
-        @apply w-5/6 max-w-full min-h-screen h-fit mx-auto bg-[url('../img/background_paper.jpg')] bg-comiclopedia_paper p-4 px-6
-        }
-        
-        /* Fonts */
-        .body_font {
-            @apply font-roboto;
-        }
-        
-        .header_font {
-            @apply font-bebas;
-        }
-        
-        .comiclopedia_font {
-            @apply font-bungee;
-        }
-        }
+        @apply w-5/6 max-w-full min-h-screen h-fit mx-auto bg-[url('../img/background_paper.jpg')] p-4 px-6 font-roboto
+    }
+}
 
 /* Customizing styling for classes used inside the 
 comiclopedia article content, as they exists in the DB */
@@ -52,4 +38,3 @@ comiclopedia article content, as they exists in the DB */
 #comiclopedia_article a {
     @apply text-comic_blue mx-auto w-fit inline
 }
-/* Tailwind End */

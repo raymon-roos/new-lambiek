@@ -1,13 +1,11 @@
-// const colors = require("tailwindcss/colors");
-
 module.exports = {
     content: ["src/**/*.{html,js,php}"],
     theme: {
         // Fonts
         fontFamily: {
-            roboto: ['Roboto', 'sans-serif'],
-            bebas: ['"Bebas Neue"', 'sans-serif'],
-            bungee: ['Bungee', 'cursive'],
+            roboto: ["Roboto", "sans-serif"],
+            bebas: ["Bebas Neue", "sans-serif"],
+            bungee: ["Bungee", "cursive"],
         },
         extend: {
             colors: {
@@ -47,7 +45,7 @@ module.exports = {
                 },
                 comiclopedia_paper: {
                     DEFAULT: "#e6d9cc",
-                }
+                },
             },
         },
     },

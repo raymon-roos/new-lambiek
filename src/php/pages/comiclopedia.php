@@ -21,29 +21,31 @@ require_once('../common/pdo.php');
         <?php require_once('../../components/header.html'); ?>
         <?php require_once('../../components/search_bar.html'); ?>
 
-        <section class="text-center">
-            <h1 class="body_font font-bold text-lg">
-                Welcome to the Comiclopedia, an illustrated compendium of over 14,000 comic
-                artists from around the world. Find your favorite artists, or discover new
-                ones!
-            </h1>
-            <br>
-            <h2 class="body_font text-base">
-                Online since 1 November 1999, the Comiclopedia is the world's largest overview
-                of comic artists, and the brainchild of comic shop Lambiek's founder Kees
-                Kousemaker (1942-2010). Kees was at the vanguard of promoting comics as art,
-                and both the Lambiek store and the website are continuing in his spirit. The
-                editors/writers of the Comiclopedia are Bas Schuddeboom and Kjell Knudde.
-                Please contact them for corrections or additions.
+        <article class="">
+            <section class="text-center">
+                <h1 class="font-bold text-lg">
+                    Welcome to the Comiclopedia, an illustrated compendium of over 14,000 comic
+                    artists from around the world. Find your favorite artists, or discover new
+                    ones!
+                </h1>
+                <br>
+                <h2 class="text-base">
+                    Online since 1 November 1999, the Comiclopedia is the world's largest overview
+                    of comic artists, and the brainchild of comic shop Lambiek's founder Kees
+                    Kousemaker (1942-2010). Kees was at the vanguard of promoting comics as art,
+                    and both the Lambiek store and the website are continuing in his spirit. The
+                    editors/writers of the Comiclopedia are Bas Schuddeboom and Kjell Knudde.
+                    Please contact them for corrections or additions.
 
-                Also visit: Lambiek's overview of Dutch Comics History (in Dutch) The history
-                of Europe's oldest comics shop: The Story of Lambiek (in English and Dutch)
-            </h2>
-            <br>
-            <h2 class="body_font text-base">Also visit:
-                Lambiek's overview of Dutch Comics History (in Dutch)
-                The history of Europe's oldest comics shop: The Story of Lambiek (in English and Dutch)</h2>
-        </section>
+                    Also visit: Lambiek's overview of Dutch Comics History (in Dutch) The history
+                    of Europe's oldest comics shop: The Story of Lambiek (in English and Dutch)
+                </h2>
+                <br>
+                <h2 class="text-base">Also visit:
+                    Lambiek's overview of Dutch Comics History (in Dutch)
+                    The history of Europe's oldest comics shop: The Story of Lambiek (in English and Dutch)</h2>
+            </section>
+        </article>
 
         <?php require_once('../../components/alphabet_bar.php'); ?>
         <?php require_once('../../components/footer.html') ?>
