@@ -22,7 +22,7 @@ $article = findArticleByID($_GET['artist']);
 
 <?php require_once('../../components/header.html'); ?>
 
-    <article class="w-9/12 mx-auto p-8 font-bungee" id="comiclopedia_article">
+    <article class="w-9/12 mx-auto p-8" id="comiclopedia_article">
         <section class="flex flex-col items-center justify-evenly w-full ">
             <?= ($article['content']) ?: 'No article was found for this artist.' ?>
         </section>
