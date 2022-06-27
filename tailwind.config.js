@@ -3,6 +3,12 @@
 module.exports = {
     content: ["src/**/*.{html,js,php}"],
     theme: {
+        // Fonts
+        fontFamily: {
+            roboto: ['Roboto', 'sans-serif'],
+            bebas: ['"Bebas Neue"', 'sans-serif'],
+            bungee: ['Bungee', 'cursive'],
+        },
         extend: {
             colors: {
                 modern_dark_blue: {
@@ -30,6 +36,9 @@ module.exports = {
                 comic_yellow: {
                     DEFAULT: "#f7a204",
                 },
+                comiclopedia_paper: {
+                    DEFAULT: "#e6d9cc",
+                }
             },
         },
     },

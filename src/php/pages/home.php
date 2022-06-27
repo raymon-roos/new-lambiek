@@ -17,7 +17,7 @@ $updatedArticles = findUpdatedArticles();
 </head>
 
 <body">
-    <div class="page_content">
+    <div class="page_content opacity_background">
         <?php require_once('../../components/header.html'); ?>
 
         <article class="">
@@ -42,6 +42,7 @@ $updatedArticles = findUpdatedArticles();
         </article>
         <?php require_once('../../components/comiclopedia_carousel.php'); ?>
         <?php require_once('../../components/footer.html') ?>
+
     </div>
     </body>
 
