@@ -32,7 +32,7 @@ $articles = findRandomArticles();
 
 <?php require_once('../../components/alphabet_bar.php'); ?>
 
-<article class="bg-old_paper-200 px-8">
+<article class=px-8">
     <section class="text-center">
         <h1 class="font-semibold">
             Welcome to the Comiclopedia, an illustrated compendium of over 14,000 comic
@@ -53,8 +53,8 @@ $articles = findRandomArticles();
     </section>
 </article>
 
-<div class="bg-modern_dark_blue">
-    <h1 class="text-modern_white_smoke font-semibold text-xl w-full text-center">Kees Kousemaker's comiclopedia</h1>
+<div class="ml-auto w-3/5 bg-modern_dark_blue">
+    <h1 class="text-modern_white_smoke font-semibold text-xl w-full text-center mt-4">Kees Kousemaker's comiclopedia</h1>
     <div class="grid grid-cols-2 gap-4 m-2 p-4">
         <?php foreach ($articles as $article) { ?>
             <div class="flex flex-col justify-center" >
