@@ -5,12 +5,12 @@
 @layer base {
     body {
         /* Background colour used for the gaps along the sides of the pages */
-        @apply bg-old_paper-100
+        @apply bg-modern_grey
     }
 
     .page_content {
         /* Class used as foreground that contains most other components/content  */
-        @apply w-5/6 max-w-full min-h-screen h-fit mx-auto relative bg-old_paper-200 p-4 px-6 pb-10
+        @apply w-5/6 max-w-full min-h-screen h-fit mx-auto bg-[url('../img/background_paper.jpg')] p-4 px-6
     }
 }
 
