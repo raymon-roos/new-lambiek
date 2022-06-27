@@ -6,7 +6,7 @@ function findArtistsByLetter(string $letter): array | false
         "SELECT `id`, `firstname`, `lastname` 
         FROM `comiclopedia` 
         WHERE LEFT(`lastname`,1) = :letter 
-        GROUP BY `lastname`"
+        ORDER BY `lastname`"
     );
     $artists->execute([':letter' => $letter]);
     $artists = $artists->fetchAll();
