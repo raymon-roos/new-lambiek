@@ -17,10 +17,16 @@ function findArtistsByLetter(string $letter): array | false
 function findRandomArticles(): array | false
 {
     $articles = DB()->query(
-        "SELECT * 
-        FROM `comiclopedia` 
+        "SELECT pedia.`id`, pedia.`name`, pics.`imgofn`, 
+            pedia.`pagelink` AS `link`, 
+            pics.`category` AS altpics
+        FROM `comiclopedia` AS `pedia` LEFT JOIN `comiclopedia_pics` AS `pics`
+        ON pedia.`id` = pics.`refid`
+        WHERE pedia.`category` NOT LIKE 'obsolete' 
+        AND pedia.`online` = '1'
+        GROUP BY pedia.`name` 
         ORDER BY RAND() 
-        LIMIT 20"
+        LIMIT 6"
     )->fetchAll();
 
     return ($articles) ?: false;
