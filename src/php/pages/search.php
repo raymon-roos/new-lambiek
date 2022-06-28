@@ -49,20 +49,20 @@ $results = (!empty($filters)) ?
 
     <?php require_once('../../components/search_bar.html'); ?>
 
-    <article class="bg-old_paper-200 px-8 ">
-        <section class="grid gap-2 grid-cols-3 place-content-evenly place-items-center w-full mx-auto">
+    <article class="px-8 ">
+        <section class="grid gap-4 grid-cols-3 w-full mx-auto">
                 <?php if ($results) {
                     foreach ($results as $result) { ?>
-                    <div class="w-4/5 bg-modern_white_smoke shadow-xl">
-                        <a href="artist_details.php?artist=<?= $result['id'] ?>" class="flex flex-col w-full items-center">
-                            <p class="flex-wrap text-comic_blue uppercase font-semibold"><?= $result['firstname'] ?> <?= $result['lastname'] ?></p>
+                    <div class="bg-modern_white_smoke shadow-xl text-modern_dark_blue">
+                        <a href="artist_details.php?artist=<?= $result['id'] ?>" class="flex flex-col items-center">
+                            <p class="flex-wrap uppercase font-semibold text-modern_dark_blue"><?= $result['firstname'] ?> <?= $result['lastname'] ?></p>
                             <?php if ($result['altpics'] == 'comicolopedia') {
                                 $imgURI = str_replace(['.html', '.htm'], '/', $result['link']) . $result['imgofn']; ?>
-                            <img src="https://lambiek.net/artists/image/<?= $imgURI ?>" alt=" something went wrong " width="80%" height="80%">
+                            <img src="https://lambiek.net/artists/image/<?= $imgURI ?>" alt=" something went wrong " class="object-cover w-96 h-96 bg-center">
                             <?php } else { ?>
-                            <img src="https://lambiek.net/artists/image/<?= $result['imgofn'] ?>" alt="" width="80%" height="80%">
+                            <img src="https://lambiek.net/artists/image/<?= $result['imgofn'] ?>" alt="" class="object-cover w-96 h-96 bg-center">
                             <?php } ?>
-                            <p class="flex-wrap text-comic_blue"><?= $result['life'] ?></p>
+                            <p class="flex-wrap "><?= $result['life'] ?></p>
                         </a>
                     </div> 
                     <?php } 
