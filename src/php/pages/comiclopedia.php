@@ -47,6 +47,15 @@ require_once('../common/pdo.php');
             </section>
         </article>
 
+        <!-- Artists of the day tailwind caroussel-->
+
+        <section class=" container lg content-center container_artist bg-modern_light_silver shadow-xl">
+            <div>
+                <h1>Carrousel</h1>
+            </div>
+        </section>
+
+
         <?php require_once('../../components/alphabet_bar.php'); ?>
         <?php require_once('../../components/footer.html') ?>
     </div>
