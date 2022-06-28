@@ -1,5 +1,8 @@
 module.exports = {
-    content: ["src/**/*.{html,js,php}"],
+    content: ['./src/**/*.{html,js,php}', './node_modules/tw-elements/dist/js/**/*.js'],
+    plugins: [
+        require('tw-elements/dist/plugin')
+    ],
     theme: {
         // Fonts
         fontFamily: {
@@ -49,5 +52,4 @@ module.exports = {
             },
         },
     },
-    plugins: [],
 };

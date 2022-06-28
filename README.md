@@ -18,3 +18,6 @@ Http server. Apache was used for this project.
 `MariaDB` or similar MySQL server. 
 
 `npm install tailwindcss` (3.0.24 or greater)
+
+`npm install tw-elements` (https://tailwind-elements.com/quick-start/)
+
