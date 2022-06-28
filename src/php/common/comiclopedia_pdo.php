@@ -29,7 +29,7 @@ function findRandomArticles(): array | false
 function findUpdatedArticles(): array | false
 {
     $newestArticles = DB()->query(
-        "SELECT `lastname`, `name`, `imgofn`, `lastupdate`, 
+        "SELECT pedia.`id`, `lastname`, `name`, `imgofn`, `lastupdate`, 
             pedia.`pagelink` AS `link`, 
             pics.`category` as `altpics`
         FROM `comiclopedia` AS `pedia` LEFT JOIN `comiclopedia_pics` AS `pics`

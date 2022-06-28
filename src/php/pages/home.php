@@ -17,12 +17,12 @@ $updatedArticles = findUpdatedArticles();
 </head>
 
 <body">
-    <div class="page_content">
+    <div class="page_content opacity_background">
         <?php require_once('../../components/header.html'); ?>
 
         <article class="">
-            <section class="[font-family:news_cycle]">
-                <h1 class="mx-auto w-fit uppercase text-modern_white_smoke text-xl font-semibold font-sans">Comic Book shop Lambiek</h1>
+            <section class="">
+                <h1 class="mx-auto w-fit uppercase text-modern_white_smoke text-xl font-semibold">Comic Book shop Lambiek</h1>
                 <br>
                 <p class="w-3/5 mx-auto">
                     Lambiek is Europe's first comic shop and probably the oldest existing comic
@@ -42,6 +42,7 @@ $updatedArticles = findUpdatedArticles();
         </article>
         <?php require_once('../../components/comiclopedia_carousel.php'); ?>
         <?php require_once('../../components/footer.html') ?>
+
     </div>
     </body>
 
