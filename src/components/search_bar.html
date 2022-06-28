@@ -21,15 +21,19 @@
         </datalist>
 
         <div class="flex justify-center text-sm" id="search_filter_buttons_container">
-            <input type="checkbox" id="filterFirstName" name="filterFirstName" class="invisible">
+            <div>
+                <input type="checkbox" id="filterFirstName" name="filterFirstName" class="invisible peer">
             <label for="filterFirstName"
-                class="bg-old_paper-100 m-1 rounded-xl px-2 py-1 hover:shadow-inner hover:bg-modern_light_blue">First
+                class="text-modern_white_smoke m-1 rounded-xl px-2 py-1 peer-checked:text-modern_light_blue peer-invalid:text-modern_white_smoke bg-transparent">First
                 name</label>
+            </div>
 
-            <input type="checkbox" id="filterLastName" name="filterLastName" class="invisible">
+            <div>
+                <input type="checkbox" id="filterLastName" name="filterLastName" class="invisible peer">
             <label for="filterLastName"
-                class="bg-old_paper-100 m-1 rounded-xl px-2 py-1 hover:shadow-inner hover:bg-modern_light_blue">Last
+                class="text-modern_white_smoke m-1 rounded-xl px-2 py-1 peer-checked:text-modern_light_blue peer-invalid:text-modern_white_smoke bg-transparent">Last
                 name</label>
+            </div>
 
             <!-- <input type="checkbox" id="filterContent" name="filterContent" class="invisible">
             <label for="filterContent"
@@ -39,20 +43,26 @@
             <!-- <input type="checkbox" id="filterCountry" name="filterCountry" class="invisible">
             <label for="filterCountry"
                 class="bg-old_paper-100 m-1 rounded-xl px-2 py-1 hover:shadow-inner hover:bg-modern_light_blue">Country</label> -->
-
-            <input type="checkbox" id="filterRealName" name="filterRealName" class="invisible">
+            <div>
+                <input type="checkbox" id="filterRealName" name="filterRealName" class="invisible peer">
             <label for="filterRealName"
-                class="bg-old_paper-100 m-1 rounded-xl px-2 py-1 hover:shadow-inner hover:bg-modern_light_blue">Real
+                class="text-modern_white_smoke m-1 rounded-xl px-2 py-1 peer-checked:text-modern_light_blue peer-invalid:text-modern_white_smoke bg-transparent">Real
                 name</label>
+            </div>
 
-            <input type="checkbox" id="filterPageTitle" name="filterPageTitle" class="invisible">
+            <div>
+                <input type="checkbox" id="filterPageTitle" name="filterPageTitle" class="invisible peer">
             <label for="filterPageTitle"
-                class="bg-old_paper-100 m-1 rounded-xl px-2 py-1 hover:shadow-inner hover:bg-modern_light_blue">Article
+                class="text-modern_white_smoke m-1 rounded-xl px-2 py-1 peer-checked:text-modern_light_blue peer-invalid:text-modern_white_smoke bg-transparent">Article
                 title</label>
+            </div>
 
-            <input type="checkbox" id="filterKeywords" name="filterKeywords" class="invisible">
+            <div>
+                <input type="checkbox" id="filterKeywords" name="filterKeywords" class="invisible peer">
             <label for="filterKeywords"
-                class="bg-old_paper-100 m-1 rounded-xl px-2 py-1 hover:shadow-inner hover:bg-modern_light_blue">Keywords</label>
+                class="text-modern_white_smoke m-1 rounded-xl px-2 py-1 peer-checked:text-modern_light_blue peer-invalid:text-modern_white_smoke bg-transparent">Keywords</label>
+            </div>
+
         </div>
         <input type="submit" value="Search"
             class="bg-modern_white_smoke ml-4 rounded-3xl px-2 py-1 w-36 hover:text-modern_light_blue">
