@@ -32,7 +32,7 @@ $articles = findRandomArticles();
 
 <?php require_once('../../components/alphabet_bar.php'); ?>
 
-<article class=px-8">
+<article class="px-8">
     <section class="text-center">
         <h1 class="font-semibold">
             Welcome to the Comiclopedia, an illustrated compendium of over 14,000 comic
@@ -53,27 +53,21 @@ $articles = findRandomArticles();
     </section>
 </article>
 
-<div class="ml-auto w-3/5 bg-modern_dark_blue">
+<article class="ml-auto w-3/5 bg-modern_dark_blue">
     <h1 class="text-modern_white_smoke font-semibold text-xl w-full text-center mt-4">Kees Kousemaker's comiclopedia</h1>
-    <div class="grid grid-cols-2 gap-4 m-2 p-4">
+    <section class="grid grid-cols-2 gap-4 m-2 p-4">
         <?php foreach ($articles as $article) { ?>
             <div class="flex flex-col justify-center" >
-                <?php if ($article['altpics'] == 'comicolopedia') {
-                    $imgURI = str_replace(['.html', '.htm'], '/', $article['link']) . $article['imgofn']; ?>
-                    <div class="bg-cover bg-center h-56 flex flex-col-reverse "
-                        style="background-image: url(https://lambiek.net/artists/image/<?= $imgURI ?>);">
-                <?php } else { ?>
-                    <div class="bg-cover bg-center h-56 flex flex-col-reverse bg-[url(https://lambiek.net/artists/image/<?= $article['imgofn'] ?>)]"
-                        style="background-image: url(https://lambiek.net/artists/image/<?= $article['imgofn'] ?>);">
-                <?php } ?>
+                <div class="bg-cover bg-center h-56 flex flex-col-reverse"
+                    style="background-image: url(https://lambiek.net/artists/image/<?= $article['imgofn'] ?>);">
                     <div id="name_box" class="bg-modern_light_blue w-fit m-2">
                         <p class="flex-wrap break-inside-auto text-modern_white_smoke text-lg font-bold"><?= $article['name'] ?></p>
                     </div>
-                    </div>
+                </div>
             </div>
         <?php } ?>    
-    </div>
-</div>
+    <section>
+</article>
 
 <?php require_once('../../components/footer.html') ?>
 </div>

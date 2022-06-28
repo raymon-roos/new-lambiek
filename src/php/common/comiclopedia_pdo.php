@@ -24,12 +24,12 @@ function findRandomArticles(): array | false
         ON pedia.`id` = pics.`refid`
         WHERE pedia.`category` NOT LIKE 'obsolete' 
         AND pedia.`online` = '1'
-        GROUP BY pedia.`name` 
+        GROUP BY pedia.`name`
         ORDER BY RAND() 
         LIMIT 6"
     )->fetchAll();
 
-    return ($articles) ?: false;
+    return ($articles) ? fixBrokenImageURI($articles) : false;
 }
 
 function findUpdatedArticles(): array | false
@@ -40,14 +40,15 @@ function findUpdatedArticles(): array | false
             pics.`category` as `altpics`
         FROM `comiclopedia` AS `pedia` LEFT JOIN `comiclopedia_pics` AS `pics`
         ON pedia.`id` = pics.`refid`
-        WHERE pedia.`category` NOT LIKE 'obsolete' 
+        WHERE pedia.`category` 
+        NOT LIKE 'obsolete' 
         AND pedia.`online` = '1'
-        GROUP BY pedia.`name` 
+        GROUP BY pedia.`name`
         ORDER BY pedia.`lastupdate` DESC
         LIMIT 6"
     )->fetchAll();
 
-    return ($newestArticles) ?: false;
+    return ($newestArticles) ? fixBrokenImageURI($newestArticles) : false;
 }
 
 function findArticleByID(int $id): array | false
@@ -83,14 +84,14 @@ function searchArticles(
         WHERE ($sqlString)
         AND pedia.`category` NOT LIKE 'obsolete' 
         AND pedia.`online` = '1'
-        GROUP BY `name`
+        GROUP BY pedia.`name`
         ORDER BY `lastname`
         LIMIT 45"
     );
     $articles->execute([':searchTerm' => "%$searchTerm%"]);
     $articles = $articles->fetchAll();
 
-    return ($articles) ?: false;
+    return ($articles) ? fixBrokenImageURI($articles) : false;
 }
 
 function getSearchSuggestions(string $searchTerm): array
@@ -113,4 +114,15 @@ function getSearchSuggestions(string $searchTerm): array
     $articles = $articles->fetchAll();
 
     return ($articles) ?: [];
+}
+
+function fixBrokenImageURI(array $articles): array
+{
+    foreach ($articles as &$article) {
+        if ($article['altpics'] == 'comicolopedia') {
+            $article['imgofn'] = str_replace(['.html', '.htm'], '/', $article['link']) . $article['imgofn'];
+        } 
+    }
+
+    return $articles;
 }

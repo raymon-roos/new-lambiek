@@ -1,5 +1,5 @@
 <div id="updatedArticlesContainer" 
-    class="flex flex-col justify-center items-center w-1/2 my-2 mx-auto bg-modern_dark_blue text-modern_white_smoke shadow-xl">
+    class="flex flex-col justify-center items-center w-1/2 p-4 my-2 mx-auto bg-modern_dark_blue text-modern_white_smoke shadow-xl">
     <h1>Recently updated articles:</h1>
     <div id="carouselContainer" class="flex flex-row justify-between items-center w-full">
         <svg id="chevronLeft" fill="currentColor" stroke-linecap="round" stroke-linejoin="round" 
@@ -9,18 +9,13 @@
                 c12.354,12.354,12.354,32.388,0,44.748L173.525,225.92l171.903,171.909c12.354,12.354,12.354,32.391,0,44.744
                 c-12.354,12.365-32.386,12.365-44.745,0l-194.29-194.281C100.226,242.115,97.141,234.018,97.141,225.92z"/>
         </svg>
-        <div id="carousel" class="select-none bg-modern_white_smoke text-comic_blue w-[220px] h-fit] p-2 shadow-inner" >
+        <div id="carousel" class="select-none bg-modern_white_smoke text-comic_blue w-full p-2 shadow-inner" >
             <?php $i = 1; 
             foreach ($updatedArticles as $article) { ?>
-                <div id="carouselChild<?= $i++ ?>" class="[display:none]" >
+                <div id="carouselChild<?= $i++ ?>" class="w-full [display:none]" >
                     <a href="artist_details.php?name=<?= $article['lastname'] ?>" 
-                        class="flex flex-col items-center">
-                            <?php if ($article['altpics'] == 'comicolopedia') {
-                                $imgURI = str_replace(['.html', '.htm'], '/', $article['link']) . $article['imgofn']; ?>
-                            <img src="https://lambiek.net/artists/image/<?= $imgURI ?>" alt=" something went wrong " width="80%" height="80%">
-                            <?php } else { ?>
-                            <img src="https://lambiek.net/artists/image/<?= $article['imgofn'] ?>" alt="" width="80%" height="80%">
-                            <?php } ?>
+                        class="flex flex-col items-center w-full">
+                            <img src="https://lambiek.net/artists/image/<?= $article['imgofn'] ?>" alt="" class="object-cover h-fit bg-center">
                         <h4 class="flex-wrap break-inside-auto mt-6"><?= $article['name'] ?></h4>
                     </a>
                 </div>

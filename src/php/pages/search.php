@@ -56,13 +56,8 @@ $results = (!empty($filters)) ?
                     <div class="bg-modern_white_smoke shadow-xl text-modern_dark_blue">
                         <a href="artist_details.php?artist=<?= $result['id'] ?>" class="flex flex-col items-center">
                             <p class="flex-wrap uppercase font-semibold text-modern_dark_blue"><?= $result['firstname'] ?> <?= $result['lastname'] ?></p>
-                            <?php if ($result['altpics'] == 'comicolopedia') {
-                                $imgURI = str_replace(['.html', '.htm'], '/', $result['link']) . $result['imgofn']; ?>
-                            <img src="https://lambiek.net/artists/image/<?= $imgURI ?>" alt=" something went wrong " class="object-cover w-96 h-96 bg-center">
-                            <?php } else { ?>
                             <img src="https://lambiek.net/artists/image/<?= $result['imgofn'] ?>" alt="" class="object-cover w-96 h-96 bg-center">
-                            <?php } ?>
-                            <p class="flex-wrap "><?= $result['life'] ?></p>
+                            <p class="text-center flex-wrap "><?= $result['life'] ?></p>
                         </a>
                     </div> 
                     <?php } 
