@@ -1,5 +1,0 @@
-1) Importeer comiclopedia.sql.zip
-2) Vervolgens de volgende zips in deze order:
-- comiclopedia_pics.sql.zip
-- comiclopedia_updates.sql.zip
-- catalog.sql.zip

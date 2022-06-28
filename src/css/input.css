@@ -17,24 +17,7 @@
 
     .page_content {
         /* Class used as foreground that contains most other components/content  */
-        @apply w-5/6 max-w-full min-h-screen h-fit mx-auto bg-[url('../img/background_paper.jpg')] bg-comiclopedia_paper p-4 px-6
-    }
-
-    /* Fonts */
-    .body_font {
-        @apply font-roboto;
-    }
-
-    .header_font {
-        @apply font-bebas;
-    }
-
-    .comiclopedia_font {
-        @apply font-bungee;
-    }
-
-    .container_artist {
-        @apply w-5/6 h-5/6 mb-4 bg-modern_light_silver
+        @apply w-5/6 max-w-full min-h-screen h-fit mx-auto bg-[url('../img/background_paper.jpg')] p-4 px-6 font-roboto
     }
 }
 

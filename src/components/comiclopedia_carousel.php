@@ -13,7 +13,7 @@
             <?php $i = 1; 
             foreach ($updatedArticles as $article) { ?>
                 <div id="carouselChild<?= $i++ ?>" class="[display:none]" >
-                    <a href="artist_details.php?name=<?= $article['lastname'] ?>" 
+                    <a href="artist_details.php?artist=<?= $article['id'] ?>" 
                         class="flex flex-col items-center">
                             <?php if ($article['altpics'] == 'comicolopedia') {
                                 $imgURI = str_replace(['.html', '.htm'], '/', $article['link']) . $article['imgofn']; ?>
