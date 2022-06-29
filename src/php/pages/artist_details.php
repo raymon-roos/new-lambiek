@@ -1,8 +1,9 @@
 <?php
 
-require_once('../common/pdo.php'); 
+require_once('../common/pdo.php');
 
 $article = findArticleByID($_GET['artist']);
+
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +25,12 @@ $article = findArticleByID($_GET['artist']);
 
     <article class="w-9/12 mx-auto p-8" id="comiclopedia_article">
         <section class="flex flex-col items-center justify-evenly w-full ">
+            <div class="flex justify-evenly items-center w-full">
+            <h1 class="text-comic_blue text font-bold text-3xl mb-4 inline"><?= ($article['pagetitle']) ?: $article['name'] ?></h1>
+            <?php if ($article['life']) { ?>
+                <p class="p-3 m-2 bg-modern_white_smoke shadow-xl"><?= ($article['life'])?></p>
+            <?php } ?>
+            </div>
             <?= ($article['content']) ?: 'No article was found for this artist.' ?>
         </section>
         <section class="w-full flex justify-center mt-5 italic">

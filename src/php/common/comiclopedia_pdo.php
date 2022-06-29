@@ -40,8 +40,7 @@ function findUpdatedArticles(): array | false
             pics.`category` as `altpics`
         FROM `comiclopedia` AS `pedia` LEFT JOIN `comiclopedia_pics` AS `pics`
         ON pedia.`id` = pics.`refid`
-        WHERE pedia.`category`
-        NOT LIKE 'obsolete'
+        WHERE pedia.`category` NOT LIKE 'obsolete'
         AND pedia.`online` = '1'
         GROUP BY pedia.`name`
         ORDER BY pedia.`lastupdate` DESC
@@ -54,7 +53,7 @@ function findUpdatedArticles(): array | false
 function findArticleByID(int $id): array | false
 {
     $article = DB()->prepare(
-        "SELECT `content`, `copyright`, `credits`, `website`
+        "SELECT `pagetitle`, `name`, `life`, `content`, `copyright`, `credits`, `website`
         FROM `comiclopedia`
         WHERE `id` = :id"
     );
