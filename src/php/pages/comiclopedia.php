@@ -58,7 +58,7 @@ $updatedArticles = findUpdatedArticles();
         <article class="ml-auto w-3/5 bg-comic_blue">
             <h1 class="text-modern_white_smoke font-semibold text-xl w-full text-center mt-4">Kees Kousemaker's comiclopedia</h1>
             <section class="grid grid-cols-2 gap-4 m-2 p-4">
-                <?php foreach ($randArticles as $article) { ?>
+                <?php foreach ($updatedArticles as $article) { ?>
                     <div class="flex flex-col justify-center" >
                         <div class="bg-cover bg-center h-56 flex flex-col-reverse"
                             style="background-image: url(https://lambiek.net/artists/image/<?= $article['imgofn'] ?>);">
@@ -71,7 +71,7 @@ $updatedArticles = findUpdatedArticles();
             <section>
         </article>
 
-        <?php require_once('../../components/footer.html') ?>
+    <?php require_once('../../components/footer.html') ?>
     </div>
 </body>
 

@@ -8,9 +8,6 @@ module.exports = {
             bungee: ["Bungee", "cursive"],
         },
         extend: {
-            maxHeight: {
-                128: "32rem",
-            },
             colors: {
                 modern_dark_blue: {
                     DEFAULT: "#336699",
