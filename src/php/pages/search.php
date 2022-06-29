@@ -36,6 +36,7 @@ echo '</pre>';
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,11 +47,11 @@ echo '</pre>';
 </head>
 
 <body>
-<div class="page_content">
+    <div class="page_content">
 
-    <?php require_once('../../components/header.html'); ?>
+        <?php require_once('../../components/header.html'); ?>
 
-    <?php require_once('../../components/search_bar.html'); ?>
+        <?php require_once('../../components/search_bar.html'); ?>
 
     <article class="px-8 ">
         <section class="grid gap-4 grid-cols-3 w-full mx-auto">
@@ -83,4 +84,5 @@ echo '</pre>';
 <?php require_once('../../components/footer.html') ?>
 </div>
 </body>
+
 </html>

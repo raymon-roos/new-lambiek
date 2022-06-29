@@ -1,21 +1,45 @@
-<div class="px-6 bg-comic_blue select-none shadow-xl mb-6 h-fit">
+<div class="px-6 bg-modern_dark_blue select-none shadow-xl mb-6 h-fit ">
+
     <form action="search.php" method="POST" class="w-full h-36 shadow-md flex flex-col items-center justify-evenly">
-        <input type="search" name="search" id="search" list="suggestions" placeholder="Search the Comiclopedia"
-            class="rounded-full px-2 w-2/5 h-10 outline-none hover:shadow-inner">
+        <label for="simple-search" class="sr-only">Search</label>
+        <div class=" relative w-3/5">
+            <!-- SVG Search Icon -->
+            <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </div>
+            <!-- Search bar -->
+            <input type="search" name="search" id="search" list="suggestions" placeholder="Search the Comiclopedia"
+                class="bg-modern_white_smoke content-center text-gray-900 text-sm rounded-3xl w-full pl-10 p-2.5 "
+                placeholder="Search" required="">
+        </div>
         <datalist id="suggestions">
             <option></option>
         </datalist>
 
         <div class="flex justify-center text-sm" id="search_filter_buttons_container">
-            <input type="checkbox" id="filterFirstName" name="filterFirstName" class="invisible">
-            <label for="filterFirstName"
-                class="bg-old_paper-100 m-1 rounded-xl px-2 py-1 hover:shadow-inner hover:bg-modern_light_blue">First
-                name</label>
+<div>
+    <input type="checkbox" id="blank" name="blank" class="invisible peer">
+    <label for="blank"
+        class="text-modern_white_smoke m-1 rounded-xl px-2 py-1 peer-checked:text-modern_light_blue peer-invalid:text-modern_white_smoke bg-transparent">All</label>
+</div>
 
-            <input type="checkbox" id="filterLastName" name="filterLastName" class="invisible">
-            <label for="filterLastName"
-                class="bg-old_paper-100 m-1 rounded-xl px-2 py-1 hover:shadow-inner hover:bg-modern_light_blue">Last
+            <div>
+                <input type="checkbox" id="filterFirstName" name="filterFirstName" class="invisible peer">
+            <label for="filterFirstName"
+                class="text-modern_white_smoke m-1 rounded-xl px-2 py-1 peer-checked:text-modern_light_blue peer-invalid:text-modern_white_smoke bg-transparent">First
                 name</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="filterLastName" name="filterLastName" class="invisible peer">
+            <label for="filterLastName"
+                class="text-modern_white_smoke m-1 rounded-xl px-2 py-1 peer-checked:text-modern_light_blue peer-invalid:text-modern_white_smoke bg-transparent">Last
+                name</label>
+            </div>
 
             <!-- <input type="checkbox" id="filterContent" name="filterContent" class="invisible">
             <label for="filterContent"
@@ -25,23 +49,29 @@
             <!-- <input type="checkbox" id="filterCountry" name="filterCountry" class="invisible">
             <label for="filterCountry"
                 class="bg-old_paper-100 m-1 rounded-xl px-2 py-1 hover:shadow-inner hover:bg-modern_light_blue">Country</label> -->
-
-            <input type="checkbox" id="filterRealName" name="filterRealName" class="invisible">
+            <div>
+                <input type="checkbox" id="filterRealName" name="filterRealName" class="invisible peer">
             <label for="filterRealName"
-                class="bg-old_paper-100 m-1 rounded-xl px-2 py-1 hover:shadow-inner hover:bg-modern_light_blue">Real
+                class="text-modern_white_smoke m-1 rounded-xl px-2 py-1 peer-checked:text-modern_light_blue peer-invalid:text-modern_white_smoke bg-transparent">Real
                 name</label>
+            </div>
 
-            <input type="checkbox" id="filterPageTitle" name="filterPageTitle" class="invisible">
+            <div>
+                <input type="checkbox" id="filterPageTitle" name="filterPageTitle" class="invisible peer">
             <label for="filterPageTitle"
-                class="bg-old_paper-100 m-1 rounded-xl px-2 py-1 hover:shadow-inner hover:bg-modern_light_blue">Article
+                class="text-modern_white_smoke m-1 rounded-xl px-2 py-1 peer-checked:text-modern_light_blue peer-invalid:text-modern_white_smoke bg-transparent">Article
                 title</label>
+            </div>
 
-            <input type="checkbox" id="filterKeywords" name="filterKeywords" class="invisible">
+            <div>
+                <input type="checkbox" id="filterKeywords" name="filterKeywords" class="invisible peer">
             <label for="filterKeywords"
-                class="bg-old_paper-100 m-1 rounded-xl px-2 py-1 hover:shadow-inner hover:bg-modern_light_blue">Keywords</label>
+                class="text-modern_white_smoke m-1 rounded-xl px-2 py-1 peer-checked:text-modern_light_blue peer-invalid:text-modern_white_smoke bg-transparent">Keywords</label>
+            </div>
+
         </div>
-        <input type="submit" value="search"
-            class="bg-modern_white_smoke ml-4 rounded-full px-2 py-1 w-36 hover:bg-modern_light_blue hover:shadow-inner">
+        <input type="submit" value="Search"
+            class="bg-modern_white_smoke ml-4 rounded-3xl px-2 py-1 w-36 hover:text-modern_light_blue">
 
         <script src="../../js/search_filters.js"></script>
         <script src="../../js/search_suggestions.js"></script>
