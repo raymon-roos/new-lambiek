@@ -8,14 +8,14 @@ if (!$_POST['search']) {
 foreach ($_POST as $inputField => $inputValue) {
     if (preg_match('/^filter/', $inputField)) {
         $filters[] = match ($inputField) {
-            // Preventing SQL injection by hardcoding possible filters 
+            // Preventing SQL injection by hardcoding possible filters
             // Otherwise an attacker could create additional form elements
             // in their client, with malicious sql in the name atribute
             'filterFirstName' => 'firstname',
             'filterLastName' => 'lastname',
             'filterRealName' => 'realname',
             'filterPageTitle' => 'pagetitle',
-            'filterKeywords' => 'keywords', 
+            'filterKeywords' => 'keywords',
             'filterContent' => 'content',
             'filterCountry' => 'country',
             default => ''
@@ -25,8 +25,8 @@ foreach ($_POST as $inputField => $inputValue) {
 
 // array_filter() will remove elements that evaluate as empty()
 require_once('../common/pdo.php');
-$results = (!empty($filters)) ? 
-    searchArticles($_POST['search'], array_filter($filters)) : 
+$results = (!empty($filters)) ?
+    searchArticles($_POST['search'], array_filter($filters)) :
     searchArticles($_POST['search']);
 
 ?>
@@ -64,8 +64,8 @@ $results = (!empty($filters)) ?
                             <?php } ?>
                             <p class="flex-wrap "><?= $result['life'] ?></p>
                         </a>
-                    </div> 
-                    <?php } 
+                    </div>
+                    <?php }
                 } else { ?>
                     <p>No matches were found</p>
                 <?php } ?>
@@ -80,6 +80,6 @@ $results = (!empty($filters)) ?
         </section>
     </article>
 <?php require_once('../../components/footer.html') ?>
-</div>    
+</div>
 </body>
 </html>

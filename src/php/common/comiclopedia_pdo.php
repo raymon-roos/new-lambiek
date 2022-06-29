@@ -1,11 +1,11 @@
 <?php
 
-function findArtistsByLetter(string $letter): array | false 
+function findArtistsByLetter(string $letter): array | false
 {
     $artists = DB()->prepare(
-        "SELECT `id`, `firstname`, `lastname` 
-        FROM `comiclopedia` 
-        WHERE LEFT(`lastname`,1) = :letter 
+        "SELECT `id`, `firstname`, `lastname`
+        FROM `comiclopedia`
+        WHERE LEFT(`lastname`,1) = :letter
         ORDER BY `lastname`"
     );
     $artists->execute([':letter' => $letter]);
@@ -17,15 +17,15 @@ function findArtistsByLetter(string $letter): array | false
 function findRandomArticles(): array | false
 {
     $articles = DB()->query(
-        "SELECT pedia.`id`, pedia.`name`, pics.`imgofn`, 
-            pedia.`pagelink` AS `link`, 
+        "SELECT pedia.`id`, pedia.`name`, pics.`imgofn`,
+            pedia.`pagelink` AS `link`,
             pics.`category` AS altpics
         FROM `comiclopedia` AS `pedia` LEFT JOIN `comiclopedia_pics` AS `pics`
         ON pedia.`id` = pics.`refid`
-        WHERE pedia.`category` NOT LIKE 'obsolete' 
+        WHERE pedia.`category` NOT LIKE 'obsolete'
         AND pedia.`online` = '1'
-        GROUP BY pedia.`name` 
-        ORDER BY RAND() 
+        GROUP BY pedia.`name`
+        ORDER BY RAND()
         LIMIT 6"
     )->fetchAll();
 
@@ -35,14 +35,14 @@ function findRandomArticles(): array | false
 function findUpdatedArticles(): array | false
 {
     $newestArticles = DB()->query(
-        "SELECT `lastname`, `name`, `imgofn`, `lastupdate`, 
-            pedia.`pagelink` AS `link`, 
+        "SELECT `lastname`, `name`, `imgofn`, `lastupdate`,
+            pedia.`pagelink` AS `link`,
             pics.`category` as `altpics`
         FROM `comiclopedia` AS `pedia` LEFT JOIN `comiclopedia_pics` AS `pics`
         ON pedia.`id` = pics.`refid`
-        WHERE pedia.`category` NOT LIKE 'obsolete' 
+        WHERE pedia.`category` NOT LIKE 'obsolete'
         AND pedia.`online` = '1'
-        GROUP BY pedia.`name` 
+        GROUP BY pedia.`name`
         ORDER BY pedia.`lastupdate` DESC
         LIMIT 6"
     )->fetchAll();
@@ -53,8 +53,8 @@ function findUpdatedArticles(): array | false
 function findArticleByID(int $id): array | false
 {
     $article = DB()->prepare(
-        "SELECT `content`, `copyright`, `credits`, `website` 
-        FROM `comiclopedia` 
+        "SELECT `pagetitle`, `name`, `life`, `content`, `copyright`, `credits`, `website`
+        FROM `comiclopedia`
         WHERE `id` = :id"
     );
     $article->bindValue(':id', $id, PDO::PARAM_INT);
@@ -65,8 +65,8 @@ function findArticleByID(int $id): array | false
 }
 
 function searchArticles(
-    string $searchTerm, 
-    array $filters = ['firstname', 'lastname', 'name', 'realname', 'pagetitle', 'keywords'], 
+    string $searchTerm,
+    array $filters = ['firstname', 'lastname', 'name', 'realname', 'pagetitle', 'keywords'],
 ): array | false {
 
     foreach ($filters as $columnName) {
@@ -75,13 +75,13 @@ function searchArticles(
     $sqlString = implode(' OR ', $sqlString);
 
     $articles = DB()->prepare(
-        "SELECT pedia.`id`, `firstname`, `lastname`, `life`, `imgofn`, 
-            pedia.`pagelink` AS `link`, 
+        "SELECT pedia.`id`, `firstname`, `lastname`, `life`, `imgofn`,
+            pedia.`pagelink` AS `link`,
             pics.`category` AS altpics
         FROM `comiclopedia` AS `pedia` LEFT JOIN `comiclopedia_pics` AS `pics`
         ON pedia.`id` = pics.`refid`
         WHERE ($sqlString)
-        AND pedia.`category` NOT LIKE 'obsolete' 
+        AND pedia.`category` NOT LIKE 'obsolete'
         AND pedia.`online` = '1'
         GROUP BY `name`
         ORDER BY `lastname`
@@ -97,14 +97,14 @@ function getSearchSuggestions(string $searchTerm): array
 {
     $articles = DB()->prepare(
         "SELECT `name`
-        FROM `comiclopedia` 
-        WHERE (`firstname` LIKE :searchTerm 
-            OR `lastname` LIKE :searchTerm 
+        FROM `comiclopedia`
+        WHERE (`firstname` LIKE :searchTerm
+            OR `lastname` LIKE :searchTerm
             OR `name` LIKE :searchTerm
-            OR `realname` LIKE :searchTerm 
-            OR `pagetitle` LIKE :searchTerm 
+            OR `realname` LIKE :searchTerm
+            OR `pagetitle` LIKE :searchTerm
             OR `keywords` LIKE :searchTerm)
-            AND `category` NOT LIKE 'obsolete' 
+            AND `category` NOT LIKE 'obsolete'
             AND `online` = '1'
         GROUP BY `name`
         LIMIT 25"
