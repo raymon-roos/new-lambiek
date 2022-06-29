@@ -6,16 +6,16 @@ if (!$_POST['search']) {
 }
 
 foreach ($_POST as $inputField => $inputValue) {
-    if (preg_match('/^filter/', $inputField)) {
+    if (str_contains($inputField, 'filter')) {
         $filters[] = match ($inputField) {
-            // Preventing SQL injection by hardcoding possible filters 
-            // Otherwise an attacker could create additional form elements
+            // Preventing SQL injection by hardcoding possible filters
+            // Otherwise an attacker could edit HTML elements
             // in their client, with malicious sql in the name atribute
             'filterFirstName' => 'firstname',
             'filterLastName' => 'lastname',
             'filterRealName' => 'realname',
             'filterPageTitle' => 'pagetitle',
-            'filterKeywords' => 'keywords', 
+            'filterKeywords' => 'keywords',
             'filterContent' => 'content',
             'filterCountry' => 'country',
             default => ''
@@ -23,11 +23,14 @@ foreach ($_POST as $inputField => $inputValue) {
     }
 }
 
-// array_filter() will remove elements that evaluate as empty()
 require_once('../common/pdo.php');
-$results = (!empty($filters)) ? 
-    searchArticles($_POST['search'], array_filter($filters)) : 
+$results = (!empty($filters)) ?
+    searchArticles($_POST['search'], array_filter($filters)) :
     searchArticles($_POST['search']);
+
+echo '<pre>';
+print_r($results);
+echo '</pre>';
 
 ?>
 
@@ -52,15 +55,18 @@ $results = (!empty($filters)) ?
     <article class="px-8 ">
         <section class="grid gap-4 grid-cols-3 w-full mx-auto">
                 <?php if ($results) {
-                    foreach ($results as $result) { ?>
-                    <div class="bg-modern_white_smoke shadow-xl text-modern_dark_blue">
-                        <a href="artist_details.php?artist=<?= $result['id'] ?>" class="flex flex-col items-center">
-                            <p class="flex-wrap uppercase font-semibold text-modern_dark_blue"><?= $result['firstname'] ?> <?= $result['lastname'] ?></p>
-                            <img src="https://lambiek.net/artists/image/<?= $result['imgofn'] ?>" alt="" class="object-cover w-96 h-96 bg-center">
-                            <p class="text-center flex-wrap "><?= $result['life'] ?></p>
-                        </a>
-                    </div> 
-                    <?php } 
+                    foreach ($results as $category) { ?>
+                    <h1 class="text-xl"><?= key($results) ?></h1>
+                        <?php foreach ($category as $article) {  ?>
+                            <div class="bg-modern_white_smoke shadow-xl text-modern_dark_blue">
+                                <a href="artist_details.php?artist=<?= $article['id'] ?>" class="flex flex-col items-center">
+                                    <p class="flex-wrap uppercase font-semibold text-modern_dark_blue"><?= $article['firstname'] ?> <?= $article['lastname'] ?></p>
+                                    <img src="https://lambiek.net/artists/image/<?= $article['imgofn'] ?>" alt="" class="object-cover w-96 h-96 bg-center">
+                                    <p class="text-center flex-wrap "><?= $article['life'] ?></p>
+                                </a>
+                            </div>
+                        <?php }
+                    }
                 } else { ?>
                     <p>No matches were found</p>
                 <?php } ?>
@@ -75,6 +81,6 @@ $results = (!empty($filters)) ?
         </section>
     </article>
 <?php require_once('../../components/footer.html') ?>
-</div>    
+</div>
 </body>
 </html>

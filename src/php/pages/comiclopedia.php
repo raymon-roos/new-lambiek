@@ -1,6 +1,6 @@
 <?php
 
-require_once('../common/pdo.php'); 
+require_once('../common/pdo.php');
 
 $articles = findRandomArticles();
 
@@ -53,7 +53,7 @@ $articles = findRandomArticles();
     </section>
 </article>
 
-<article class="ml-auto w-3/5 bg-modern_dark_blue">
+<article class="ml-auto w-3/5 bg-comic_blue">
     <h1 class="text-modern_white_smoke font-semibold text-xl w-full text-center mt-4">Kees Kousemaker's comiclopedia</h1>
     <section class="grid grid-cols-2 gap-4 m-2 p-4">
         <?php foreach ($articles as $article) { ?>
@@ -65,7 +65,7 @@ $articles = findRandomArticles();
                     </div>
                 </div>
             </div>
-        <?php } ?>    
+        <?php } ?>
     <section>
 </article>
 
