@@ -6,11 +6,10 @@ $randArticles = findRandomArticles();
 $updatedArticles = findUpdatedArticles();
 
 ?>
-<!-- Tailwind Elements -->
-<script src="../../../node_modules/tw-elements/dist/js/index.min.js"></script>
-
 <!DOCTYPE html>
 <html lang="en">
+
+<script src="../../../node_modules/tw-elements/dist/js/index.min.js"></script>
 
 <head>
     <meta charset="UTF-8">
@@ -19,6 +18,7 @@ $updatedArticles = findUpdatedArticles();
     <link rel="icon" type="image/x-icon" href="../../../img/index.ico">
     <title>Comiclopedia</title>
     <link rel="stylesheet" href="../../../dist/output.css">
+    <link rel="stylesheet" href="../../css/input.css">
 </head>
 
 <body>
@@ -27,7 +27,7 @@ $updatedArticles = findUpdatedArticles();
         <?php require_once('../../components/search_bar.html'); ?>
         <?php require_once('../../components/alphabet_bar.php'); ?>
 
-        <article class="">
+        <article class="content_info">
             <section class="text-center">
                 <h1 class="font-bold text-lg">
                     Welcome to the Comiclopedia, an illustrated compendium of over 14,000 comic

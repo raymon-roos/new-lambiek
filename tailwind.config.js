@@ -2,13 +2,15 @@ module.exports = {
     content: ["./src/**/*.{html,js,php}", "./node_modules/tw-elements/dist/js/**/*.js"],
     plugins: [require("tw-elements/dist/plugin")],
     theme: {
-        // Fonts
         fontFamily: {
             roboto: ["Roboto", "sans-serif"],
             bebas: ["Bebas Neue", "sans-serif"],
             bungee: ["Bungee", "cursive"],
         },
         extend: {
+            maxHeight: {
+                128: "32rem",
+            },
             colors: {
                 modern_dark_blue: {
                     DEFAULT: "#336699",
