@@ -29,7 +29,7 @@ function findRandomArticles(): array | false
         LIMIT 6"
     )->fetchAll();
 
-    return ($articles) ?: false;
+    return ($articles) ? fixBrokenImageURI($articles) : false;
 }
 
 function findUpdatedArticles(): array | false
@@ -47,7 +47,7 @@ function findUpdatedArticles(): array | false
         LIMIT 6"
     )->fetchAll();
 
-    return ($newestArticles) ?: false;
+    return ($newestArticles) ? fixBrokenImageURI($newestArticles) : false;
 }
 
 function findArticleByID(int $id): array | false
@@ -64,33 +64,40 @@ function findArticleByID(int $id): array | false
     return ($article) ?: false;
 }
 
-function searchArticles(
-    string $searchTerm,
-    array $filters = ['firstname', 'lastname', 'name', 'realname', 'pagetitle', 'keywords'],
-): array | false {
+function searchArticles(string $searchTerm, array $filters = ['firstname', 'lastname', 'name', 'realname', 'pagetitle', 'keywords']): array | false
+{
 
-    foreach ($filters as $columnName) {
-        $sqlString[] = "`$columnName` LIKE :searchTerm";
-    }
-    $sqlString = implode(' OR ', $sqlString);
-
-    $articles = DB()->prepare(
-        "SELECT pedia.`id`, `firstname`, `lastname`, `life`, `imgofn`,
+    function articleSearchHelper($filter, $searchTerm)
+    {
+        $articles = DB()->prepare(
+            "SELECT pedia.`id`, `firstname`, `lastname`, `life`, `imgofn`,
             pedia.`pagelink` AS `link`,
             pics.`category` AS altpics
         FROM `comiclopedia` AS `pedia` LEFT JOIN `comiclopedia_pics` AS `pics`
         ON pedia.`id` = pics.`refid`
-        WHERE ($sqlString)
+        WHERE $filter LIKE :searchTerm
         AND pedia.`category` NOT LIKE 'obsolete'
         AND pedia.`online` = '1'
-        GROUP BY `name`
+        GROUP BY pedia.`name`
         ORDER BY `lastname`
         LIMIT 45"
-    );
-    $articles->execute([':searchTerm' => "%$searchTerm%"]);
-    $articles = $articles->fetchAll();
+        );
+        $articles->execute([':searchTerm' => "%$searchTerm%"]);
+        $articles = $articles->fetchAll();
 
-    return ($articles) ?: false;
+        return ($articles) ? fixBrokenImageURI($articles) : false;
+    }
+
+    // foreach ($filters as $columnName) {
+    //     $sqlString[] = "`$columnName` LIKE :searchTerm";
+    // }
+    // $sqlString = implode(' OR ', $sqlString);
+
+    foreach ($filters as $filter) {
+        $articles[$filter] = (articleSearchHelper($filter, $searchTerm)) ?: [];
+    }
+
+    return (array_filter($articles)) ?: false;
 }
 
 function getSearchSuggestions(string $searchTerm): array
@@ -113,4 +120,15 @@ function getSearchSuggestions(string $searchTerm): array
     $articles = $articles->fetchAll();
 
     return ($articles) ?: [];
+}
+
+function fixBrokenImageURI(array $articles): array
+{
+    foreach ($articles as &$article) {
+        if ($article['altpics'] == 'comicolopedia') {
+            $article['imgofn'] = str_replace(['.html', '.htm'], '/', $article['link']) . $article['imgofn'];
+        }
+    }
+
+    return $articles;
 }

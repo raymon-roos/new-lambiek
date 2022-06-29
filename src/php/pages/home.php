@@ -43,6 +43,6 @@ $updatedArticles = findUpdatedArticles();
         <?php require_once('../../components/comiclopedia_carousel.php'); ?>
         <?php require_once('../../components/footer.html') ?>
     </div>
-    </body>
+</body>
 
 </html>
