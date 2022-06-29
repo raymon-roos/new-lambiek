@@ -1,6 +1,6 @@
 <?php
 
-require_once('../common/pdo.php'); 
+require_once('../common/pdo.php');
 
 $artists = findArtistsByLetter($_GET['filter']);
 ?>
@@ -24,7 +24,7 @@ $artists = findArtistsByLetter($_GET['filter']);
 
 <?php require_once('../../components/alphabet_bar.php'); ?>
 
-    <article class="bg-old_paper-200 p-8">
+    <article class="p-8">
         <section class="columns-3xs [column-rule:1px_solid_#3477ab]">
             <?php foreach ($artists as $artist) { ?>
                 <p class="break-before-avoid ">
