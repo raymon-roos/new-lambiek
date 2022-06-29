@@ -48,17 +48,13 @@ echo '</pre>';
 
 <body>
     <div class="page_content">
-
-        <?php require_once('../../components/header.html'); ?>
-
-        <?php require_once('../../components/search_bar.html'); ?>
+    <?php require_once('../../components/header.html'); ?>
+    <?php require_once('../../components/search_bar.html'); ?>
 
     <article class="px-8 ">
         <section class="grid gap-4 grid-cols-3 w-full mx-auto">
                 <?php if ($results) {
-                    foreach ($results as $category) { ?>
-                    <h1 class="text-xl"><?= key($results) ?></h1>
-                        <?php foreach ($category as $article) {  ?>
+                    foreach ($results as $article) { ?>
                             <div class="bg-modern_white_smoke shadow-xl text-modern_dark_blue">
                                 <a href="artist_details.php?artist=<?= $article['id'] ?>" class="flex flex-col items-center">
                                     <p class="flex-wrap uppercase font-semibold text-modern_dark_blue"><?= $article['firstname'] ?> <?= $article['lastname'] ?></p>
@@ -66,8 +62,7 @@ echo '</pre>';
                                     <p class="text-center flex-wrap "><?= $article['life'] ?></p>
                                 </a>
                             </div>
-                        <?php }
-                    }
+                    <?php }
                 } else { ?>
                     <p>No matches were found</p>
                 <?php } ?>
