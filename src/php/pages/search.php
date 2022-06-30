@@ -53,19 +53,19 @@ echo '</pre>';
 
     <article class="px-8 ">
         <section class="grid gap-4 grid-cols-3 w-full mx-auto">
-                <?php if ($results) {
-                    foreach ($results as $article) { ?>
-                            <div class="bg-modern_white_smoke shadow-xl text-modern_dark_blue">
-                                <a href="artist_details.php?artist=<?= $article['id'] ?>" class="flex flex-col items-center">
-                                    <p class="flex-wrap uppercase font-semibold text-modern_dark_blue"><?= $article['firstname'] ?> <?= $article['lastname'] ?></p>
-                                    <img src="https://lambiek.net/artists/image/<?= $article['imgofn'] ?>" alt="" class="object-cover w-96 h-96 bg-center">
-                                    <p class="text-center flex-wrap "><?= $article['life'] ?></p>
-                                </a>
-                            </div>
-                    <?php }
-                } else { ?>
-                    <p>No matches were found</p>
-                <?php } ?>
+            <?php if ($results) {
+                foreach ($results as $article) { ?>
+                    <div class="bg-modern_white_smoke shadow-xl text-modern_dark_blue">
+                        <a href="artist_details.php?artist=<?= $article['id'] ?>" class="flex flex-col items-center">
+                            <p class="flex-wrap uppercase font-semibold text-modern_dark_blue"><?= $article['firstname'] ?> <?= $article['lastname'] ?></p>
+                            <img src="https://lambiek.net/artists/image/<?= $article['imgofn'] ?>" alt="" class="object-cover w-96 h-96 bg-center">
+                            <p class="text-center flex-wrap "><?= $article['life'] ?></p>
+                        </a>
+                    </div>
+                <?php }
+            } else { ?>
+                <p>No matches were found</p>
+            <?php } ?>
         </section>
         <section>
             <div class="flex justify-center">

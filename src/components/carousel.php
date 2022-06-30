@@ -12,7 +12,7 @@
 
         <div class="carousel-inner relative w-full overflow-hidden">
         <?php foreach ($randArticles as $article) { ?>
-            <div class="carousel-item relative float-left  w-full">
+            <div class="carousel-item relative float-left w-full">
                 <img src="https://www.lambiek.net/artists/image/<?= $article['imgofn'] ?>" class="object-fill object-center w-full h-full" alt="" />
                 <div class="carousel-caption hidden md:block absolute text-center ">
                     <a href="artist_details.php?artist=<?= $article['id'] ?>">
@@ -23,7 +23,7 @@
         <?php } ?>
         </div>
 
-        <button class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+        <button class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0 text-comic_blue hover:text-modern_blue" type="button" data-bs-target="#carousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
