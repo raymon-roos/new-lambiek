@@ -62,9 +62,9 @@ $updatedArticles = findUpdatedArticles();
                     <div class="flex flex-col justify-center" >
                         <div class="bg-cover bg-center h-56 flex flex-col-reverse"
                             style="background-image: url(https://lambiek.net/artists/image/<?= $article['imgofn'] ?>);">
-                            <div id="name_box" class="bg-modern_light_blue w-fit m-2">
+                            <a href="artist_details.php?artist=<?= $article['id'] ?>" class="bg-modern_light_blue w-fit m-2">
                                 <p class="flex-wrap break-inside-auto text-modern_white_smoke text-lg font-bold"><?= $article['name'] ?></p>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 <?php } ?>
