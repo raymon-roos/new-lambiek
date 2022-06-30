@@ -27,7 +27,7 @@ $updatedArticles = findUpdatedArticles();
         <?php require_once('../../components/search_bar.html'); ?>
         <?php require_once('../../components/alphabet_bar.php'); ?>
 
-        <article class="content_info">
+        <article class="my-8">
             <section class="text-center">
                 <h1 class="font-bold text-lg">
                     Welcome to the Comiclopedia, an illustrated compendium of over 14,000 comic
@@ -35,7 +35,7 @@ $updatedArticles = findUpdatedArticles();
                     ones!
                 </h1>
                 <br>
-                <h2 class="text-base">
+                <h2 class="text-base w-3/5 mx-auto">
                     Online since 1 November 1999, the Comiclopedia is the world's largest overview
                     of comic artists, and the brainchild of comic shop Lambiek's founder Kees
                     Kousemaker (1942-2010). Kees was at the vanguard of promoting comics as art,
@@ -47,15 +47,16 @@ $updatedArticles = findUpdatedArticles();
                     of Europe's oldest comics shop: The Story of Lambiek (in English and Dutch)
                 </h2>
                 <br>
-                <h2 class="text-base">Also visit:
+                <h2 class="text-base w-3/5 mx-auto">Also visit:
                     Lambiek's overview of Dutch Comics History (in Dutch)
                     The history of Europe's oldest comics shop: The Story of Lambiek (in English and Dutch)</h2>
             </section>
         </article>
 
+        <div class="flex flex-row justify-between my-8">
         <?php require_once('../../components/carousel.php') ?>
 
-        <article class="ml-auto w-3/5 bg-comic_blue">
+        <article class="w-1/2 bg-comic_blue">
             <h1 class="text-modern_white_smoke font-semibold text-xl w-full text-center mt-4">Kees Kousemaker's comiclopedia</h1>
             <section class="grid grid-cols-2 gap-4 m-2 p-4">
                 <?php foreach ($updatedArticles as $article) { ?>
@@ -70,6 +71,7 @@ $updatedArticles = findUpdatedArticles();
                 <?php } ?>
             <section>
         </article>
+        </div>
 
     <?php require_once('../../components/footer.html') ?>
     </div>
