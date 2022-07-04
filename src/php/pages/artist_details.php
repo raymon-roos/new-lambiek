@@ -33,14 +33,13 @@ $article = findArticleByID($_GET['artist']);
             </div>
             <?= ($article['content']) ?: 'No article was found for this artist.' ?>
         </section>
-        <section class="w-full flex justify-center mt-5 italic">
-            <?= ($article['copyright']) ?: 'All rights reserved' ?>
-        </section>
-        <section class="w-full flex justify-center mt-5">
-            <?= ($article['credits']) ?: '' ?>
-        </section>
-        <section class="w-full flex justify-center mt-5">
-            <?= ($article['website'] && $article['website'] !== 'default.xhtml') ? $article['website'] : '' ?>
+        <section class="w-full mt-5">
+            <p class="text-center my-4"><a href="https://www.lambiek.net/shop/artist/<?= ($article['pagename']) ?: '' ?>">Find comics from this author in our store</a></p>
+            <p class="my-2"><?= ($article['copyright']) ?: "Artwork © " . date('Y') . " {$article['name']}" ?></p>
+            <p class="my-2"><?= "Website © " . date('Y') . ' Lambiek' ?></p>
+            <p class="my-2"><?= ($article['credits']) ?: '' ?></p>
+            <p class="my-2"><?= ($article['website'] && $article['website'] !== 'default.xhtml') ? $article['website'] : '' ?></p>
+            <p class="my-2 text-sm italic">Last updated: <?= $article['lastupdate'] ?></p>
         </section>
     </article>
     <script src="../../js/fix_comiclopedia_articles.js"></script>

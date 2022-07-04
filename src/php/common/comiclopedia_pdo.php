@@ -53,7 +53,7 @@ function findUpdatedArticles(): array | false
 function findArticleByID(int $id): array | false
 {
     $article = DB()->prepare(
-        "SELECT `pagetitle`, `name`, `life`, `content`, `copyright`, `credits`, `website`
+        "SELECT `pagetitle`, `pagename`, `name`, `life`, `content`, `lastupdate`, `copyright`, `credits`, `website`
         FROM `comiclopedia`
         WHERE `id` = :id"
     );
