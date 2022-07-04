@@ -16,10 +16,10 @@ require_once('../common/pdo.php');
 </head>
 
 <body">
-    <div class="page_content opacity_background">
+    <div class="page_content">
         <?php require_once('../../components/header.html'); ?>
 
-        <article class="">
+        <article class="mt-28 mb-auto">
             <section class="">
                 <h1 class="mx-auto w-fit uppercase text-modern_white_smoke text-xl font-semibold">Comic Book shop Lambiek</h1>
                 <br>

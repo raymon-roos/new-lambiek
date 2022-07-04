@@ -93,11 +93,12 @@ function searchArticles(string $searchTerm, array $filters = ['firstname', 'last
     // }
     // $sqlString = implode(' OR ', $sqlString);
 
+    $articles = [];
     foreach ($filters as $filter) {
-        $articles[$filter] = (articleSearchHelper($filter, $searchTerm)) ?: [];
+        $articles += (articleSearchHelper($filter, $searchTerm)) ?: [];
     }
 
-    return (array_filter($articles)) ?: false;
+    return (array_unique($articles, SORT_REGULAR)) ?: false;
 }
 
 function getSearchSuggestions(string $searchTerm): array
