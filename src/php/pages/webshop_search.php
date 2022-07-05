@@ -38,7 +38,7 @@ $results = searchComics($_POST['search']);
                 <?php if ($results) {
                     foreach ($results as $result) { ?>
                     <div class="flex">
-                        <a href="comic_details.php?comicID=<?= $result['id'] ?>" 
+                        <a href="comic_details.php?comicID=<?= $result['id'] ?>"
                             class="flex flex-col ">
                             <img src="http://unsplash.it/165/220" alt="oops" width="165" height="220" class="">
                             <p class="flex-wrap "><?= $result['artist']?></p>
@@ -52,7 +52,8 @@ $results = searchComics($_POST['search']);
         </section>
     </article>
 
-</div>    
+    <?php require_once('../../components/footer_shop.html') ?>
+</div>
 </body>
 </html>
 

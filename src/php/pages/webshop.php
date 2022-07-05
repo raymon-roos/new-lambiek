@@ -48,6 +48,8 @@ $comics = findRandomComics();
             </div>
         </section>
     </article> -->
+
+    <?php require_once('../../components/footer_shop.html') ?>
 </div>
 
 </body>
