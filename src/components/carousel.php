@@ -1,5 +1,5 @@
-<section class="w-2/5 ">
-    <div id="carousel" class="padding_element carousel slide carousel-fade carousel-dark relative h-3/4 border-8 border-modern_white_smoke border-opacity-25 bg-modern_white_smoke bg-opacity-80" data-bs-ride="carousel">
+<section class="w-2/5 h-1/3">
+    <div id="carousel" class="carousel slide carousel-fade carousel-dark w-full h-full relative border-8 border-modern_white_smoke border-opacity-25 bg-modern_white_smoke bg-opacity-80" data-bs-ride="carousel">
         <h1 class="text-5xl font-bebas drop-shadow-xl artist_title text-center">Artists of the day</h1>
         <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4 ">
             <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -8,10 +8,10 @@
             <?php } ?>
         </div>
 
-        <div class="carousel-inner relative w-full overflow-hidden">
+        <div class="carousel-inner w-full h-full relative overflow-hidden object-contain object-center">
         <?php foreach ($randArticles as $article) { ?>
-            <div class="carousel-item relative float-left w-full h-full bg-cover bg-center ">
-                <img src="https://www.lambiek.net/artists/image/<?= $article['imgofn'] ?>" class="object-cover object-center w-full h-full" alt="" />
+            <div class="carousel-item relative float-left w-full min-h-fit h-full max-h-[700px] object-contain object-center">
+                <img src="../../../image/<?= $article['imgofn'] ?>" class="object-contain object-center w-full h-full max-h-full" alt="" />
                 <div class="carousel-caption hidden md:block absolute text-center ">
                     <a href="artist_details.php?artist=<?= $article['id'] ?>">
                         <p class="bg-modern_light_blue hover:bg-modern_blue text-modern_white_smoke font-bungee py-3 px-6 rounded-xl"><?= $article['name'] ?></p>
