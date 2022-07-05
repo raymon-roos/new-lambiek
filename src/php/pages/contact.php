@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<script src="../../../node_modules/tw-elements/dist/js/index.min.js"></script>
 
 <head>
     <meta charset="UTF-8">
@@ -12,15 +11,16 @@
 </head>
 
 <body>
+    <div class="page_content">
 
     <?php require_once('../../components/header.html'); ?>
 
-    <div class="flex min-h-screen items-center justify-start bg-white">
+    <div class="h-full">
         <div class="mx-auto w-full max-w-lg">
             <h1 class="text-4xl font-medium">Neem contact op</h1>
-            <p class="mt-3">Stuur ons via hier een bericht: </p>
+            <p class="mt-3">Vragen of opmerkingen over de comiclopedia? Stuur ons een bericht:</p>
 
-            <form action="" class="mt-10">
+            <form action="" class="p-14 bg-modern_white_smoke bg-opacity-40 rounded-xl shadow-xl">
                 <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
                 <div class="grid gap-6 sm:grid-cols-2">
                     <div class="relative z-0">
@@ -42,6 +42,7 @@
 
     </div>
     <?php require_once('../../components/footer.html') ?>
+</div>
 </body>
 
 </html>
