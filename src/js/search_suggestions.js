@@ -11,8 +11,6 @@ function fetchSuggestions() {
                 suggestions.forEach(suggestion => {
                     if (suggestion) {
                         suggestionsContainer.innerHTML += `<option value="${suggestion.name}">`;
-                    } else {
-                        suggestionsContainer.innerHTML = "";
                     }
                 })
             );
