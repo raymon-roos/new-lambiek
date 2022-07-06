@@ -4,8 +4,8 @@ function DB()
 {
     $host = '127.0.0.1';
     $db   = 'lambiek';
-    $user = 'root';
-    $pass = '';
+    $user = 'bit_academy';
+    $pass = 'bit_academy';
     $charset = 'utf8mb4';
 
     $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
