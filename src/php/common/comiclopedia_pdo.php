@@ -53,7 +53,7 @@ function findUpdatedArticles(): array | false
 function findArticleByID(int $id): array | false
 {
     $article = DB()->prepare(
-        "SELECT `pagetitle`, `name`, `life`, `content`, `copyright`, `credits`, `website`
+        "SELECT `pagetitle`, `pagename`, `name`, `life`, `content`, `lastupdate`, `copyright`, `credits`, `website`
         FROM `comiclopedia`
         WHERE `id` = :id"
     );
@@ -93,11 +93,12 @@ function searchArticles(string $searchTerm, array $filters = ['firstname', 'last
     // }
     // $sqlString = implode(' OR ', $sqlString);
 
+    $articles = [];
     foreach ($filters as $filter) {
-        $articles[$filter] = (articleSearchHelper($filter, $searchTerm)) ?: [];
+        $articles += (articleSearchHelper($filter, $searchTerm)) ?: [];
     }
 
-    return (array_filter($articles)) ?: false;
+    return (array_unique($articles, SORT_REGULAR)) ?: false;
 }
 
 function getSearchSuggestions(string $searchTerm): array
