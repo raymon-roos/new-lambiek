@@ -5,9 +5,6 @@
 You can find the original website [here](https://lambiek.net "lambiek.net") All rights
 belong to their respective owners.
 
-For a limited duration you may view the results of our work for yourself
-[here](https://new.lambiek.net "new.lambiek.net")
-
 ## Test instructions
 
 A sql import for suitable test data is yet to be included. Until then this project cannot
